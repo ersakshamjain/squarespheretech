@@ -1189,6 +1189,11 @@
         <p class="text-gray-400 mt-4 text-base sm:text-lg">
           We build with high-performance frameworks, resilient cloud infrastructure, and modern APIs designed to handle millions of transactions.
         </p>
+
+        <!-- Mobile Swipe Hint -->
+        <div class="md:hidden flex items-center justify-center gap-1.5 text-xs text-cyan-400 font-medium mt-4 bg-cyan-500/10 border border-cyan-500/20 py-1.5 px-3.5 rounded-full w-fit mx-auto">
+          <span>← Swipe 6 tech domains →</span>
+        </div>
       </div>
 
       <!-- Mobile Touch Carousel / Desktop 3-Col Grid -->
@@ -2752,6 +2757,16 @@
       const slider = document.getElementById(sliderId);
       const dots = document.querySelectorAll('.' + dotClass);
       if (!slider || dots.length === 0) return;
+
+      dots.forEach((dot, idx) => {
+        dot.style.cursor = 'pointer';
+        dot.addEventListener('click', () => {
+          const card = slider.querySelector('div');
+          const scrollAmount = card ? card.offsetWidth + 20 : 300;
+          slider.scrollTo({ left: idx * scrollAmount, behavior: 'smooth' });
+        });
+      });
+
       slider.addEventListener('scroll', () => {
         const maxScroll = slider.scrollWidth - slider.clientWidth;
         if (maxScroll <= 5) return;
@@ -2759,9 +2774,9 @@
         const activeIndex = Math.min(Math.round(scrollRatio * (dots.length - 1)), dots.length - 1);
         dots.forEach((dot, idx) => {
           if (idx === activeIndex) {
-            dot.className = `${dotClass} h-2 w-5 rounded-full ${activeClass} transition-all`;
+            dot.className = `${dotClass} h-2 w-5 rounded-full ${activeClass} transition-all cursor-pointer`;
           } else {
-            dot.className = `${dotClass} h-2 w-2 rounded-full ${inactiveClass} transition-all`;
+            dot.className = `${dotClass} h-2 w-2 rounded-full ${inactiveClass} transition-all cursor-pointer`;
           }
         });
       }, { passive: true });
