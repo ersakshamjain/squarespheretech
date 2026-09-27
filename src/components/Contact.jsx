@@ -4,11 +4,12 @@ import { Mail, Phone, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
+  const [customService, setCustomService] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    service: 'Shopify / Shopify Plus',
+    service: 'Shopify / Shopify Plus Development',
     budget: '$5k – $15k',
     timeline: '1 – 2 Months',
     message: ''
@@ -17,13 +18,16 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const services = [
-    'Shopify / Shopify Plus',
-    'Magento / Adobe Commerce',
-    'PrestaShop 8 / Migration',
-    'WordPress / WooCommerce',
-    'Headless & Next.js',
-    'UI/UX & CRO Audit',
-    'Growth & Performance SEO'
+    'Shopify / Shopify Plus Development',
+    'Magento / Adobe Commerce Enterprise',
+    'Shopware 6 Enterprise Architecture',
+    'PrestaShop 8 / Safe Platform Migration',
+    'WordPress / WooCommerce Store',
+    'Headless Commerce & Next.js Architecture',
+    'Custom Full-Stack Web Application',
+    'UI/UX Design & CRO Conversion Audit',
+    'Growth Engineering & Core Web Vitals SEO',
+    'Other / Custom Engineering'
   ];
 
   const budgets = [
@@ -44,7 +48,11 @@ export default function Contact() {
     setSubmittedName(formData.name);
     setLoading(true);
 
-    const waText = `Hi SquareSphere Technologies!%0A%0A*New Project Brief:*%0A• *Name:* ${encodeURIComponent(formData.name)}%0A• *Email:* ${encodeURIComponent(formData.email)}%0A• *Company:* ${encodeURIComponent(formData.company || 'N/A')}%0A• *Service:* ${encodeURIComponent(formData.service)}%0A• *Budget:* ${encodeURIComponent(formData.budget)}%0A• *Timeline:* ${encodeURIComponent(formData.timeline)}%0A• *Brief:* ${encodeURIComponent(formData.message)}`;
+    const finalService = formData.service === 'Other / Custom Engineering' && customService.trim()
+      ? `Other: ${customService.trim()}`
+      : formData.service;
+
+    const waText = `Hi SquareSphere Technologies!%0A%0A*New Project Brief:*%0A• *Name:* ${encodeURIComponent(formData.name)}%0A• *Email:* ${encodeURIComponent(formData.email)}%0A• *Company:* ${encodeURIComponent(formData.company || 'N/A')}%0A• *Service:* ${encodeURIComponent(finalService)}%0A• *Budget:* ${encodeURIComponent(formData.budget)}%0A• *Timeline:* ${encodeURIComponent(formData.timeline)}%0A• *Brief:* ${encodeURIComponent(formData.message)}`;
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -58,7 +66,7 @@ export default function Contact() {
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          service: formData.service,
+          service: finalService,
           budget: formData.budget,
           timeline: formData.timeline,
           message: formData.message,
@@ -78,11 +86,12 @@ export default function Contact() {
       setSubmitted(true);
     } finally {
       setLoading(false);
+      setCustomService('');
       setFormData({
         name: '',
         email: '',
         company: '',
-        service: 'Shopify / Shopify Plus',
+        service: 'Shopify / Shopify Plus Development',
         budget: '$5k – $15k',
         timeline: '1 – 2 Months',
         message: ''
@@ -194,7 +203,7 @@ export default function Contact() {
                   className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-600 hover:border-pink-500 hover:bg-pink-50 hover:text-[#E4405F] transition-all shadow-sm"
                   title="Instagram"
                 >
-                  <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -255,39 +264,55 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Service Chips */}
+              {/* Service / Technology Selection Dropdown */}
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-2.5">
-                  Service Needed <span className="text-blue-600">*</span>
+                <label className="block text-xs font-semibold text-gray-700 mb-2">
+                  Service / Technology Needed <span className="text-blue-600">*</span>
                 </label>
-                <div className="flex flex-wrap gap-2">
-                  {services.map((srv, idx) => {
-                    const isSelected = formData.service === srv;
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, service: srv })}
-                        className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border active:scale-95 ${
-                          isSelected
-                            ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                            : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white'
-                        }`}
-                      >
+                <div className="relative">
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white text-gray-800 transition appearance-none cursor-pointer pr-10 font-medium"
+                  >
+                    {services.map((srv, idx) => (
+                      <option key={idx} value={srv}>
                         {srv}
-                      </button>
-                    );
-                  })}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </div>
+
+                {/* Conditional Custom Requirement Input when "Other" is selected */}
+                {formData.service === 'Other / Custom Engineering' && (
+                  <div className="mt-3 animate-fadeIn">
+                    <label className="block text-[11px] font-semibold text-blue-700 mb-1">
+                      Specify Custom Requirement or Tech Stack *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={customService}
+                      onChange={(e) => setCustomService(e.target.value)}
+                      placeholder="e.g. Mobile App, Custom API connector, AI Assistant, etc."
+                      className="w-full px-4 py-2.5 rounded-lg border border-blue-300 bg-blue-50/40 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm transition"
+                    />
+                  </div>
+                )}
               </div>
 
-              {/* Budget & Timeline Grid */}
+              {/* Symmetrical Responsive Budget & Timeline Grids */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-2.5">
+                  <label className="block text-xs font-semibold text-gray-700 mb-2">
                     Project Budget <span className="text-blue-600">*</span>
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {budgets.map((bgt, idx) => {
                       const isSelected = formData.budget === bgt;
                       return (
@@ -295,7 +320,7 @@ export default function Contact() {
                           key={idx}
                           type="button"
                           onClick={() => setFormData({ ...formData, budget: bgt })}
-                          className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all border active:scale-95 ${
+                          className={`py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border active:scale-95 ${
                             isSelected
                               ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
                               : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white'
@@ -309,10 +334,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-2.5">
+                  <label className="block text-xs font-semibold text-gray-700 mb-2">
                     Target Timeline <span className="text-blue-600">*</span>
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-3 gap-2">
                     {timelines.map((tml, idx) => {
                       const isSelected = formData.timeline === tml;
                       return (
@@ -320,7 +345,7 @@ export default function Contact() {
                           key={idx}
                           type="button"
                           onClick={() => setFormData({ ...formData, timeline: tml })}
-                          className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all border active:scale-95 ${
+                          className={`py-2.5 px-1 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border active:scale-95 ${
                             isSelected
                               ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
                               : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white'

@@ -202,6 +202,24 @@
 
   <!-- ================= 1. HEADER / NAVBAR ================= -->
   <header class="site-header fixed top-0 left-0 right-0 z-50 transition-all">
+    <!-- High-Impact Top Announcement / Alert Bar -->
+    <div class="bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 px-3 text-center text-xs relative overflow-hidden z-20">
+      <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-gray-200">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase flex-shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Now Booking
+        </span>
+        <span class="truncate text-gray-200">
+          <strong class="text-white font-semibold">Q2/Q3 Onboarding:</strong> Accepting 3 New Commerce Builds <span class="hidden sm:inline">(Free $1,500 CRO Audit Included)</span>
+        </span>
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-1 text-cyan-400 hover:text-white font-bold underline underline-offset-2 transition-colors flex-shrink-0 ml-1"
+        >
+          Claim Slot &rarr;
+        </a>
+      </div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Official SquareSphere Brand Logo -->
       <a href="#home" class="flex items-center gap-3 group">
@@ -275,10 +293,17 @@
         <span>Contact</span>
         <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500"></i>
       </a>
-      <div class="pt-2">
-        <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 active:scale-95 transition">
+      <div class="pt-3">
+        <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm shadow-lg shadow-blue-600/30 active:scale-95 transition">
           <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
           Get a Free Consultation
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+      <div class="pt-2 text-center">
+        <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 font-medium py-1.5 px-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          Direct WhatsApp Scoping: +91 7427097207
         </a>
       </div>
     </div>
@@ -296,15 +321,16 @@
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-[11px] sm:text-sm text-gray-300 mb-8 backdrop-blur-md shadow-md max-w-full">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-        <span class="font-bold text-cyan-400 tracking-wide uppercase text-[11px]">SquareSphere</span>
-        <span class="text-gray-400 font-medium">Global IT Partner For Growing Brands</span>
+      <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-[11px] sm:text-xs text-gray-300 mb-8 backdrop-blur-md shadow-md max-w-full">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse flex-shrink-0"></span>
+        <span class="font-bold text-cyan-400 tracking-wide uppercase text-[10px] sm:text-[11px] flex-shrink-0">SquareSphere</span>
+        <span class="text-gray-600 flex-shrink-0">•</span>
+        <span class="text-gray-300 font-medium whitespace-nowrap">Global IT Partner <span class="hidden xs:inline">For Growing Brands</span></span>
       </div>
 
       <!-- Main Heading (Title Case) -->
       <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-5 sm:mb-6 leading-[1.15] font-heading">
-        Your Business, Our Priority.<br class="hidden sm:inline">
+        Your Business, Our Priority.<br class="block sm:inline">
         <span class="text-gradient">We Engineer Digital Commerce That Scales</span>
       </h1>
 
@@ -342,10 +368,15 @@
         </p>
       </div>
 
-      <!-- Partner & Expert Badges (Clean 4-Col Grid on Desktop, 2-Col on Mobile — No Scrollbar) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-        
-        <!-- 1. Shopify Partner -->
+      <!-- 2x2 Grid Carousel Container -->
+      <div id="partnerCarouselWrap" class="relative max-w-5xl mx-auto">
+        <div class="overflow-hidden rounded-2xl">
+          <div id="partnerSlideTrack" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+            
+            <!-- Slide 1 (4 items: 2x2 on mobile, 4-col on desktop) -->
+            <div class="w-full flex-shrink-0 px-1">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <!-- 1. Shopify Partner -->
         <div class="flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 hover:border-[#95BF47]/60 hover:bg-[#0E172E] transition-all duration-300 group shadow-sm">
           <div class="w-9 h-9 rounded-lg bg-[#95BF47]/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="#95BF47">
@@ -399,7 +430,12 @@
             <div class="text-blue-400 text-[11px] font-semibold tracking-wide truncate">Business Partner</div>
           </div>
         </div>
+      </div>
+    </div>
 
+    <!-- Slide 2 (4 items: 2x2 on mobile, 4-col on desktop) -->
+    <div class="w-full flex-shrink-0 px-1">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <!-- 5. Magento Experts -->
         <div class="flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 hover:border-orange-500/60 hover:bg-[#0E172E] transition-all duration-300 group shadow-sm">
           <div class="w-9 h-9 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -451,10 +487,42 @@
             <div class="text-purple-400 text-[11px] font-semibold tracking-wide truncate">Experts</div>
           </div>
         </div>
-
       </div>
     </div>
-  </section>
+
+  </div>
+</div>
+
+<!-- Controls: Auto-status label, dots & arrows -->
+<div class="flex items-center justify-between mt-4 px-1">
+  <div class="flex items-center gap-2">
+    <span id="partnerStatusLabel" class="text-[11px] font-medium text-cyan-400 inline-flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+      Auto-scrolling (swipe or tap to freeze)
+    </span>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <!-- Pagination Dots -->
+    <div class="flex items-center gap-1.5">
+      <button onclick="goToPartnerSlide(0, true)" id="pDot0" class="h-2 w-6 rounded-full bg-cyan-400 transition-all duration-300" aria-label="Partner Slide 1"></button>
+      <button onclick="goToPartnerSlide(1, true)" id="pDot1" class="h-2 w-2 rounded-full bg-gray-700 hover:bg-gray-500 transition-all duration-300" aria-label="Partner Slide 2"></button>
+    </div>
+
+    <!-- Prev / Next Arrows -->
+    <div class="flex items-center gap-1.5">
+      <button onclick="slidePartner(-1, true)" class="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95" aria-label="Previous Partners">
+        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+      </button>
+      <button onclick="slidePartner(1, true)" class="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95" aria-label="Next Partners">
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
 
   <!-- ================= 4. STATS BAR ================= -->
   <section id="stats" class="bg-[#030712] py-8 sm:py-12">
@@ -2370,44 +2438,66 @@
               <input type="text" id="formCompany" placeholder="e.g. Acme Lifestyle Co." class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm transition">
             </div>
 
-            <!-- Service Needed Interactive Chips -->
+            <!-- Service / Technology Selection Dropdown -->
             <div>
-              <label class="block text-xs font-semibold text-gray-700 mb-2.5">
-                Service Needed <span class="text-blue-600">*</span>
+              <label class="block text-xs font-semibold text-gray-700 mb-2">
+                Service / Technology Needed <span class="text-blue-600">*</span>
               </label>
-              <div class="flex flex-wrap gap-2" id="serviceChips">
-                <button type="button" onclick="selectFormChip('service', this, 'Shopify / Shopify Plus')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95">Shopify / Shopify Plus</button>
-                <button type="button" onclick="selectFormChip('service', this, 'Magento / Adobe Commerce')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">Magento / Adobe Commerce</button>
-                <button type="button" onclick="selectFormChip('service', this, 'PrestaShop 8 / Migration')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">PrestaShop 8 / Migration</button>
-                <button type="button" onclick="selectFormChip('service', this, 'WordPress / WooCommerce')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">WordPress / WooCommerce</button>
-                <button type="button" onclick="selectFormChip('service', this, 'Headless & Next.js')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">Headless & Next.js</button>
-                <button type="button" onclick="selectFormChip('service', this, 'UI/UX & CRO Audit')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">UI/UX & CRO Audit</button>
-                <button type="button" onclick="selectFormChip('service', this, 'Growth & Performance SEO')" class="chip-service px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">Growth & Performance SEO</button>
+              <div class="relative">
+                <select id="selectedService" onchange="handleServiceChange(this.value)" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white text-gray-800 transition appearance-none cursor-pointer pr-10 font-medium">
+                  <option value="Shopify / Shopify Plus Development">Shopify / Shopify Plus Development</option>
+                  <option value="Magento / Adobe Commerce Enterprise">Magento / Adobe Commerce Enterprise</option>
+                  <option value="Shopware 6 Enterprise Architecture">Shopware 6 Enterprise Architecture</option>
+                  <option value="PrestaShop 8 / Safe Platform Migration">PrestaShop 8 / Safe Platform Migration</option>
+                  <option value="WordPress / WooCommerce Store">WordPress / WooCommerce Store</option>
+                  <option value="Headless Commerce & Next.js Architecture">Headless Commerce & Next.js Architecture</option>
+                  <option value="Custom Full-Stack Web Application">Custom Full-Stack Web Application</option>
+                  <option value="UI/UX Design & CRO Conversion Audit">UI/UX Design & CRO Conversion Audit</option>
+                  <option value="Growth Engineering & Core Web Vitals SEO">Growth Engineering & Core Web Vitals SEO</option>
+                  <option value="Other / Custom Engineering">Other / Custom Engineering</option>
+                </select>
+                <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Conditional Custom Requirement Input when "Other" is selected -->
+              <div id="otherServiceWrap" class="hidden mt-3 animate-fadeIn">
+                <label class="block text-[11px] font-semibold text-blue-700 mb-1">
+                  Specify Custom Requirement or Tech Stack *
+                </label>
+                <input type="text" id="formOtherService" placeholder="e.g. Mobile App, Custom API connector, AI Assistant, etc." class="w-full px-4 py-2.5 rounded-lg border border-blue-300 bg-blue-50/40 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm transition">
               </div>
             </div>
 
-            <!-- Budget & Timeline Side-by-Side Chips -->
+            <!-- Hidden Inputs for Form Submission -->
+            <input type="hidden" id="selectedBudget" value="$5k – $15k">
+            <input type="hidden" id="selectedTimeline" value="1 – 2 Months">
+
+            <!-- Budget & Timeline Symmetrical Grids -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label class="block text-xs font-semibold text-gray-700 mb-2.5">
+                <label class="block text-xs font-semibold text-gray-700 mb-2">
                   Project Budget <span class="text-blue-600">*</span>
                 </label>
-                <div class="flex flex-wrap gap-2" id="budgetChips">
-                  <button type="button" onclick="selectFormChip('budget', this, '< $5k')" class="chip-budget px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">&lt; $5k</button>
-                  <button type="button" onclick="selectFormChip('budget', this, '$5k – $15k')" class="chip-budget px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95">$5k – $15k</button>
-                  <button type="button" onclick="selectFormChip('budget', this, '$15k – $30k')" class="chip-budget px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">$15k – $30k</button>
-                  <button type="button" onclick="selectFormChip('budget', this, '$30k+')" class="chip-budget px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">$30k+</button>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="budgetChips">
+                  <button type="button" onclick="selectFormChip('budget', this, '< $5k')" class="chip-budget py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">&lt; $5k</button>
+                  <button type="button" onclick="selectFormChip('budget', this, '$5k – $15k')" class="chip-budget py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95">$5k – $15k</button>
+                  <button type="button" onclick="selectFormChip('budget', this, '$15k – $30k')" class="chip-budget py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">$15k – $30k</button>
+                  <button type="button" onclick="selectFormChip('budget', this, '$30k+')" class="chip-budget py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">$30k+</button>
                 </div>
               </div>
 
               <div>
-                <label class="block text-xs font-semibold text-gray-700 mb-2.5">
+                <label class="block text-xs font-semibold text-gray-700 mb-2">
                   Target Timeline <span class="text-blue-600">*</span>
                 </label>
-                <div class="flex flex-wrap gap-2" id="timelineChips">
-                  <button type="button" onclick="selectFormChip('timeline', this, '⚡ ASAP (< 1 Mo)')" class="chip-timeline px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">⚡ ASAP (&lt;1 Mo)</button>
-                  <button type="button" onclick="selectFormChip('timeline', this, '1 – 2 Months')" class="chip-timeline px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95">1 – 2 Months</button>
-                  <button type="button" onclick="selectFormChip('timeline', this, '3+ Months')" class="chip-timeline px-3 py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">3+ Months</button>
+                <div class="grid grid-cols-3 gap-2" id="timelineChips">
+                  <button type="button" onclick="selectFormChip('timeline', this, '⚡ ASAP (< 1 Mo)')" class="chip-timeline py-2.5 px-1 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">⚡ ASAP</button>
+                  <button type="button" onclick="selectFormChip('timeline', this, '1 – 2 Months')" class="chip-timeline py-2.5 px-1 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95">1–2 Mo</button>
+                  <button type="button" onclick="selectFormChip('timeline', this, '3+ Months')" class="chip-timeline py-2.5 px-1 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95">3+ Mo</button>
                 </div>
               </div>
             </div>
@@ -3090,21 +3180,86 @@
       }
     };
 
+    // Partner Carousel Logic with Auto-play & User Freeze
+    let partnerCurrentSlide = 0;
+    let partnerAutoPlay = true;
+    let partnerTimer = setInterval(() => {
+      if (partnerAutoPlay) {
+        window.slidePartner(1, false);
+      }
+    }, 3500);
+
+    window.goToPartnerSlide = function(idx, isManual) {
+      if (isManual) {
+        partnerAutoPlay = false;
+        clearInterval(partnerTimer);
+        const label = document.getElementById('partnerStatusLabel');
+        if (label) {
+          label.className = "text-[11px] font-medium text-gray-400";
+          label.innerText = "Stopped on user action";
+        }
+      }
+      partnerCurrentSlide = idx;
+      const track = document.getElementById('partnerSlideTrack');
+      if (track) {
+        track.style.transform = `translateX(-${partnerCurrentSlide * 100}%)`;
+      }
+      const d0 = document.getElementById('pDot0');
+      const d1 = document.getElementById('pDot1');
+      if (d0 && d1) {
+        d0.className = partnerCurrentSlide === 0 ? "h-2 w-6 rounded-full bg-cyan-400 transition-all duration-300" : "h-2 w-2 rounded-full bg-gray-700 hover:bg-gray-500 transition-all duration-300";
+        d1.className = partnerCurrentSlide === 1 ? "h-2 w-6 rounded-full bg-cyan-400 transition-all duration-300" : "h-2 w-2 rounded-full bg-gray-700 hover:bg-gray-500 transition-all duration-300";
+      }
+    };
+
+    window.slidePartner = function(dir, isManual) {
+      let next = (partnerCurrentSlide + dir + 2) % 2;
+      window.goToPartnerSlide(next, isManual);
+    };
+
+    // Mobile touch swipe for partner carousel
+    const partnerWrap = document.getElementById('partnerCarouselWrap');
+    if (partnerWrap) {
+      let pTouchStart = 0;
+      partnerWrap.addEventListener('touchstart', (e) => {
+        pTouchStart = e.touches[0].clientX;
+      }, { passive: true });
+      partnerWrap.addEventListener('touchend', (e) => {
+        const diff = pTouchStart - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          window.slidePartner(diff > 0 ? 1 : -1, true);
+        }
+      }, { passive: true });
+    }
+
+    // Service Dropdown "Other" Toggle
+    window.handleServiceChange = function(val) {
+      const wrap = document.getElementById('otherServiceWrap');
+      const input = document.getElementById('formOtherService');
+      if (wrap) {
+        if (val === 'Other / Custom Engineering') {
+          wrap.classList.remove('hidden');
+          if (input) input.required = true;
+        } else {
+          wrap.classList.add('hidden');
+          if (input) input.required = false;
+        }
+      }
+    };
+
     // Interactive Contact Form Chip Selection
     window.selectFormChip = function(type, btn, value) {
       const hiddenInput = document.getElementById(
-        type === 'service' ? 'selectedService' : (type === 'budget' ? 'selectedBudget' : 'selectedTimeline')
+        type === 'budget' ? 'selectedBudget' : 'selectedTimeline'
       );
       if (hiddenInput) hiddenInput.value = value;
 
       const chipClass = `chip-${type}`;
       document.querySelectorAll(`.${chipClass}`).forEach(el => {
-        const padX = type === 'service' ? 'px-3.5' : 'px-3';
-        el.className = `${chipClass} ${padX} py-2 rounded-lg text-xs font-semibold transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95`;
+        el.className = `${chipClass} py-2.5 px-1 sm:px-2 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white active:scale-95`;
       });
 
-      const padX = type === 'service' ? 'px-3.5' : 'px-3';
-      btn.className = `${chipClass} ${padX} py-2 rounded-lg text-xs font-semibold transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95`;
+      btn.className = `${chipClass} py-2.5 px-1 sm:px-2 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border bg-blue-600 text-white border-blue-600 shadow-sm active:scale-95`;
     };
 
     // Contact Form Submission with Real Email Delivery
@@ -3119,7 +3274,11 @@
         const name = document.getElementById('formName')?.value || '';
         const email = document.getElementById('formEmail')?.value || '';
         const company = document.getElementById('formCompany')?.value || 'N/A';
-        const service = document.getElementById('selectedService')?.value || 'Shopify / Shopify Plus';
+        const baseService = document.getElementById('selectedService')?.value || 'Shopify / Shopify Plus Development';
+        const otherDetail = document.getElementById('formOtherService')?.value?.trim();
+        const service = (baseService === 'Other / Custom Engineering' && otherDetail)
+          ? `Other: ${otherDetail}`
+          : baseService;
         const budget = document.getElementById('selectedBudget')?.value || '$5k – $15k';
         const timeline = document.getElementById('selectedTimeline')?.value || '1 – 2 Months';
         const message = document.getElementById('formMessage')?.value || '';

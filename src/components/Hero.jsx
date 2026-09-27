@@ -165,15 +165,16 @@ export default function Hero() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-xs sm:text-sm text-gray-300 mb-8 backdrop-blur-md shadow-md">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          <span className="font-bold text-cyan-400 tracking-wide uppercase text-[11px]">SquareSphere</span>
-          <span className="text-gray-400 font-medium">Global IT Partner For Growing Brands</span>
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-[11px] sm:text-xs text-gray-300 mb-8 backdrop-blur-md shadow-md max-w-full">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse flex-shrink-0"></span>
+          <span className="font-bold text-cyan-400 tracking-wide uppercase text-[10px] sm:text-[11px] flex-shrink-0">SquareSphere</span>
+          <span className="text-gray-600 flex-shrink-0">•</span>
+          <span className="text-gray-300 font-medium whitespace-nowrap">Global IT Partner <span className="hidden xs:inline">For Growing Brands</span></span>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12] font-heading">
-          Your Business, Our Priority.<br className="hidden sm:inline" />
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.15] font-heading">
+          Your Business, Our Priority.<br className="block sm:inline" />
           <span className="text-gradient">We Engineer Digital Commerce That Scales</span>
         </h1>
 

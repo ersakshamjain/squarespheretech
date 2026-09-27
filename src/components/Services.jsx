@@ -87,7 +87,7 @@ export default function Services() {
   return (
     <section id="services" className="py-20 md:py-28 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
             <ShoppingBag className="w-3.5 h-3.5" /> Full-Lifecycle Engineering
           </div>
@@ -97,13 +97,18 @@ export default function Services() {
           <p className="text-gray-500 mt-3 text-base sm:text-lg leading-relaxed">
             From bespoke architecture and headless stores to AI automation and performance marketing — everything required to scale digital commerce.
           </p>
+
+          {/* Mobile Swipe Hint */}
+          <div className="md:hidden flex items-center justify-center gap-1.5 text-xs text-blue-600 font-medium mt-4 bg-blue-50/80 border border-blue-100 py-1.5 px-3.5 rounded-full w-fit mx-auto">
+            <span>← Swipe 6 core services →</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
           {services.map((s, idx) => {
             const Icon = s.icon;
             return (
-              <div key={idx} className="p-8 rounded-2xl border border-gray-200/90 bg-white card-hover flex flex-col justify-between">
+              <div key={idx} className="w-[85vw] max-w-[340px] flex-shrink-0 snap-center md:w-auto md:max-w-none md:flex-shrink p-6 sm:p-8 rounded-2xl border border-gray-200/90 bg-white card-hover flex flex-col justify-between shadow-sm">
                 <div>
                   <div className={`w-12 h-12 rounded-xl ${s.iconColor} flex items-center justify-center mb-6`}>
                     <Icon className="w-6 h-6" />

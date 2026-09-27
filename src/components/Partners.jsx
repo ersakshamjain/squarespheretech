@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Partners() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const touchStartX = useRef(0);
+
   const partners = [
     {
       name: 'Shopify',
@@ -103,37 +108,149 @@ export default function Partners() {
     }
   ];
 
+  // Group into slides of 4 items each (2 cols x 2 rows on mobile)
+  const slides = [
+    partners.slice(0, 4),
+    partners.slice(4, 8)
+  ];
+
+  // Auto-play timer
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isAutoPlay, slides.length]);
+
+  // When manually moved, permanently stop auto-play as requested
+  const goToSlide = (index) => {
+    setIsAutoPlay(false);
+    setCurrentSlide(index);
+  };
+
+  const handleNext = () => {
+    setIsAutoPlay(false);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrev = () => {
+    setIsAutoPlay(false);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) handleNext();
+      else handlePrev();
+    }
+  };
+
   return (
     <section className="bg-[#030712] border-t border-b border-gray-800/80 py-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950/15 via-transparent to-transparent pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-7">
           <h3 className="text-xs sm:text-sm font-bold tracking-[0.2em] text-cyan-400 uppercase font-heading">
-            Official Partners & Experts
+            Official Partners &amp; Experts
           </h3>
           <p className="text-gray-400 text-xs sm:text-sm mt-1">
-            Accredited Partners with Shopify, BigCommerce, Google & Meta &bull; Platform Experts in Magento, Shopware, PrestaShop & WooCommerce
+            Accredited Partners with Shopify, BigCommerce, Google &amp; Meta &bull; Platform Experts in Magento, Shopware, PrestaShop &amp; WooCommerce
           </p>
         </div>
 
-        {/* Partner & Expert Badges (Clean 4-Col Grid on Desktop, 2-Col on Mobile — No Scrollbar) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          {partners.map((partner, idx) => (
-            <div
-              key={idx}
-              className={`flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+        {/* 2x2 Grid Carousel Container */}
+        <div 
+          className="relative max-w-5xl mx-auto"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Slides Track */}
+          <div className="overflow-hidden rounded-2xl">
+            <div 
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              <div className={`w-9 h-9 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                {partner.icon}
+              {slides.map((slideItems, sIdx) => (
+                <div key={sIdx} className="w-full flex-shrink-0 px-1">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                    {slideItems.map((partner, idx) => (
+                      <div
+                        key={idx}
+                        className={`flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+                      >
+                        <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                          {partner.icon}
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                          <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Controls: Auto-status label, dots & arrows */}
+          <div className="flex items-center justify-between mt-4 px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-medium">
+                {isAutoPlay ? (
+                  <span className="inline-flex items-center gap-1.5 text-cyan-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    Auto-scrolling (swipe or tap to freeze)
+                  </span>
+                ) : (
+                  <span className="text-gray-400">Stopped on user action</span>
+                )}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {/* Pagination Dots */}
+              <div className="flex items-center gap-1.5">
+                {slides.map((_, dotIdx) => (
+                  <button
+                    key={dotIdx}
+                    onClick={() => goToSlide(dotIdx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      currentSlide === dotIdx ? 'w-6 bg-cyan-400' : 'w-2 bg-gray-700 hover:bg-gray-500'
+                    }`}
+                    aria-label={`Go to partner page ${dotIdx + 1}`}
+                  />
+                ))}
               </div>
-              <div className="min-w-0">
-                <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
-                <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+
+              {/* Prev / Next Arrows */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={handlePrev}
+                  className="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
+                  aria-label="Previous Partners"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
+                  aria-label="Next Partners"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
