@@ -11,7 +11,8 @@ import {
   Layers, 
   MessageCircle, 
   SlidersHorizontal,
-  ExternalLink
+  ExternalLink,
+  Clock
 } from 'lucide-react';
 
 export default function ProjectsPage() {
@@ -451,61 +452,77 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ================= 4. PROOF / CONFIDENCE BANNER ================= */}
-      <section className="py-12 bg-white border-y border-gray-200/90">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-50 via-cyan-50 to-indigo-50 border border-blue-100 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-3">
-                <CheckCircle2 className="w-3.5 h-3.5" /> High-Performance Benchmark
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">
-                Average +38% Conversion Lift Within 90 Days of Launch
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2 max-w-xl">
-                Every commerce asset built by SquareSphere undergoes strict WCAG accessibility checks, automated Cypress E2E regression tests, and sub-1s Core Web Vitals audits.
-              </p>
+      {/* ================= 4. PRE-FOOTER ENTERPRISE CTA (Light & Balanced) ================= */}
+      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-gray-200/90 relative overflow-hidden">
+        {/* Ambient subtle background glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-gradient-to-r from-blue-400/10 via-cyan-400/10 to-indigo-400/10 rounded-full blur-[100px]"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Elevated Card with soft border and crisp styling */}
+          <div className="bg-gradient-to-br from-white via-[#F0F7FF] to-white border border-blue-100 rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl shadow-blue-500/5 text-center relative overflow-hidden">
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+              <span>🚀 Have A Similar Technical Challenge?</span>
             </div>
-            <a
-              href="/#contact"
-              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/25 whitespace-nowrap transition"
-            >
-              Request a Technical Audit →
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* ================= 5. CLOSING LEAD MAGNET CTA (Dark Theme) ================= */}
-      <section className="py-20 bg-[#030712] text-white relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-6">
-            <span>🚀 Have A Similar Technical Challenge?</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight">
-            Let's Scope Your High-Growth Commerce Store.
-          </h2>
-          <p className="text-gray-400 mt-4 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Speak directly with our senior technology team. Get an unfiltered technical evaluation of your architecture, database bottlenecks, and migration roadmap within 24 hours.
-          </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight font-heading leading-tight max-w-3xl mx-auto">
+              Let's Scope Your High-Growth Commerce Store.
+            </h2>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-            <a
-              href="/#contact"
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm sm:text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2"
-            >
-              <span>Schedule 15-Min Scoping Call</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <a
-              href="https://wa.me/917427097207"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-xl bg-[#0A0F1D] border border-gray-700 hover:border-emerald-500 text-gray-200 hover:text-emerald-400 font-bold text-sm sm:text-base transition flex items-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5 text-emerald-400" />
-              <span>Direct WhatsApp Scoping</span>
-            </a>
+            <p className="text-gray-600 mt-4 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+              Speak directly with our senior technology team. Get an unfiltered technical evaluation of your architecture, database bottlenecks, and migration roadmap within 24 hours.
+            </p>
+
+            {/* Proof Metrics Bar */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto my-8 py-4 px-6 rounded-2xl bg-white/90 backdrop-blur-sm border border-gray-200/90 shadow-sm">
+              <div className="text-center sm:border-r sm:border-gray-200">
+                <div className="text-xl sm:text-2xl font-black text-blue-600 font-heading">+38%</div>
+                <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Avg. Conversion Lift</div>
+              </div>
+              <div className="text-center sm:border-r sm:border-gray-200">
+                <div className="text-xl sm:text-2xl font-black text-emerald-600 font-heading">&lt; 0.9s</div>
+                <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Core Web Vitals LCP</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl font-black text-purple-600 font-heading">99.9%</div>
+                <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Uptime SLA Guaranteed</div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="/#contact"
+                className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm sm:text-base shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2"
+              >
+                <span>Schedule 15-Min Scoping Call</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/917427097207"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-xl bg-white border border-gray-300 hover:border-emerald-500 text-gray-800 hover:text-emerald-600 font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition flex items-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5 text-emerald-500" />
+                <span>Direct WhatsApp Scoping</span>
+              </a>
+            </div>
+
+            {/* Trust Reassurance */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs text-gray-500 font-medium pt-6 border-t border-blue-100/60">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Free 30-Min Architecture Evaluation
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-blue-500" /> 100% NDA-Protected
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-cyan-600" /> Technical Scope in 24 Hours
+              </span>
+            </div>
+
           </div>
         </div>
       </section>
