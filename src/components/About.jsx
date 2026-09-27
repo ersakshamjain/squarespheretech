@@ -62,7 +62,7 @@ export default function About() {
           })}
         </div>
 
-        {/* Link to Dedicated About Page */}
+        {/* === READ FULL STORY BUTTON (Uncomment when needed) ===
         <div className="mt-12 text-center">
           <a
             href="#/about"
@@ -72,6 +72,7 @@ export default function About() {
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
+        ======================================================== */}
       </div>
     </section>
   );

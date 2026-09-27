@@ -7,13 +7,13 @@ export default function Navbar({ currentPage = 'home' }) {
   const isAbout = currentPage === 'about';
 
   const navLinks = [
-    { name: 'Home', href: isAbout ? '/#home' : '#home' },
-    { name: 'About', href: '#/about', isActive: isAbout },
-    { name: 'Services', href: isAbout ? '/#services' : '#services' },
-    { name: 'Projects', href: isAbout ? '/#projects' : '#projects' },
-    { name: 'Testimonials', href: isAbout ? '/#testimonials' : '#testimonials' },
-    { name: 'Team', href: isAbout ? '/#team' : '#team' },
-    { name: 'Contact', href: isAbout ? '/#contact' : '#contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' /* To link separate page: href: '#/about', isActive: isAbout */ },
+    { name: 'Services', href: '#services' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Team', href: '#team' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (

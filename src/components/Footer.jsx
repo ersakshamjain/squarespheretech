@@ -24,7 +24,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Company</h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-gray-400">
-              <li><a href="#/about" className="hover:text-white transition">About Us</a></li>
+              <li><a href="#about" className="hover:text-white transition">About Us</a>{/* To link separate page: href="#/about" */}</li>
               <li><a href="#team" className="hover:text-white transition">Team</a></li>
               <li><a href="#projects" className="hover:text-white transition">Careers</a></li>
               <li><a href="#" className="hover:text-white transition">Blog</a></li>
