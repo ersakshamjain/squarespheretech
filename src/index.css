@@ -147,3 +147,20 @@ header.site-header {
   display: inline-block;
 }
 
+/* Continuous News Marquee Ticker (Top Header Bar) */
+@keyframes newsMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-news-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: newsMarquee 38s linear infinite;
+  will-change: transform;
+}
+.animate-news-ticker:hover,
+.animate-news-ticker:active {
+  animation-play-state: paused;
+}
+

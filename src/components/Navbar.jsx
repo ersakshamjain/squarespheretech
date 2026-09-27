@@ -16,22 +16,70 @@ export default function Navbar() {
 
   return (
     <header className="site-header fixed top-0 left-0 right-0 z-50 transition-all">
-      {/* High-Impact Top Announcement / Alert Bar */}
-      <div className="bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 px-3 text-center text-xs relative overflow-hidden z-20">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-gray-200">
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase flex-shrink-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-            Now Booking
-          </span>
-          <span className="truncate text-gray-200">
-            <strong className="text-white font-semibold">Q2/Q3 Onboarding:</strong> Accepting 3 New Commerce Builds <span className="hidden sm:inline">(Free $1,500 CRO Audit Included)</span>
-          </span>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1 text-cyan-400 hover:text-white font-bold underline underline-offset-2 transition-colors flex-shrink-0 ml-1"
-          >
-            Claim Slot &rarr;
-          </a>
+      {/* High-Impact Top Continuous News Ticker / Announcement Bar */}
+      <div className="bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 relative overflow-hidden z-20">
+        {/* Subtle Fade Edges */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#030712] to-transparent z-10"></div>
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#030712] to-transparent z-10"></div>
+
+        {/* Continuous News Marquee Track */}
+        <div className="flex overflow-hidden whitespace-nowrap">
+          <div className="animate-news-ticker flex items-center gap-8 text-[11px] sm:text-xs text-gray-200 flex-shrink-0 pr-8">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+              Live Update
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-cyan-400 font-bold">🚀 Q2/Q3 Onboarding:</span>
+              <span>Accepting 3 Enterprise Projects for Scaled Commerce &amp; Headless Engineering</span>
+              <a href="#contact" className="text-cyan-300 font-bold underline underline-offset-2 hover:text-white transition">Claim Slot &rarr;</a>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-amber-400 font-bold">⚡ Certified Partners:</span>
+              <span>Accredited Experts in Shopify Plus, Adobe Magento, Shopware, Google &amp; Meta</span>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-emerald-400 font-bold">🌐 Global Delivery:</span>
+              <span>40+ High-Performance Commerce Platforms Deployed Across USA, UK, UAE &amp; India (99.9% Uptime)</span>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-purple-400 font-bold">💬 Instant Technical Scoping:</span>
+              <span>Direct WhatsApp Chat with Senior Technical Architect within 15 Mins</span>
+              <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold underline underline-offset-2 hover:text-emerald-300 transition">WhatsApp Now 💬</a>
+            </span>
+          </div>
+
+          {/* Duplicate track for seamless infinite marquee loop */}
+          <div className="animate-news-ticker flex items-center gap-8 text-[11px] sm:text-xs text-gray-200 flex-shrink-0 pr-8" aria-hidden="true">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+              Live Update
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-cyan-400 font-bold">🚀 Q2/Q3 Onboarding:</span>
+              <span>Accepting 3 Enterprise Projects for Scaled Commerce &amp; Headless Engineering</span>
+              <a href="#contact" className="text-cyan-300 font-bold underline underline-offset-2 hover:text-white transition">Claim Slot &rarr;</a>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-amber-400 font-bold">⚡ Certified Partners:</span>
+              <span>Accredited Experts in Shopify Plus, Adobe Magento, Shopware, Google &amp; Meta</span>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-emerald-400 font-bold">🌐 Global Delivery:</span>
+              <span>40+ High-Performance Commerce Platforms Deployed Across USA, UK, UAE &amp; India (99.9% Uptime)</span>
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-purple-400 font-bold">💬 Instant Technical Scoping:</span>
+              <span>Direct WhatsApp Chat with Senior Technical Architect within 15 Mins</span>
+              <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold underline underline-offset-2 hover:text-emerald-300 transition">WhatsApp Now 💬</a>
+            </span>
+          </div>
         </div>
       </div>
 

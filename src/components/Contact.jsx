@@ -306,30 +306,29 @@ export default function Contact() {
                 )}
               </div>
 
-              {/* Symmetrical Responsive Budget & Timeline Grids */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Project Budget & Timeline Dropdowns */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-xs font-semibold text-gray-700 mb-2">
                     Project Budget <span className="text-blue-600">*</span>
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {budgets.map((bgt, idx) => {
-                      const isSelected = formData.budget === bgt;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, budget: bgt })}
-                          className={`py-2.5 px-2 rounded-lg text-xs font-semibold text-center transition-all border active:scale-95 ${
-                            isSelected
-                              ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                              : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white'
-                          }`}
-                        >
+                  <div className="relative">
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white text-gray-800 transition appearance-none cursor-pointer pr-10 font-medium"
+                    >
+                      {budgets.map((bgt, idx) => (
+                        <option key={idx} value={bgt}>
                           {bgt}
-                        </button>
-                      );
-                    })}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
 
@@ -337,24 +336,23 @@ export default function Contact() {
                   <label className="block text-xs font-semibold text-gray-700 mb-2">
                     Target Timeline <span className="text-blue-600">*</span>
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {timelines.map((tml, idx) => {
-                      const isSelected = formData.timeline === tml;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, timeline: tml })}
-                          className={`py-2.5 px-1 rounded-lg text-[11px] sm:text-xs font-semibold text-center truncate transition-all border active:scale-95 ${
-                            isSelected
-                              ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                              : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-gray-400 hover:bg-white'
-                          }`}
-                        >
+                  <div className="relative">
+                    <select
+                      value={formData.timeline}
+                      onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white text-gray-800 transition appearance-none cursor-pointer pr-10 font-medium"
+                    >
+                      {timelines.map((tml, idx) => (
+                        <option key={idx} value={tml}>
                           {tml}
-                        </button>
-                      );
-                    })}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
