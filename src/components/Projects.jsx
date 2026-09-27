@@ -328,7 +328,7 @@ export default function Projects() {
         {/* Minimal "See More" Underline Link */}
         <div className="mt-8 text-center">
           <a
-            href="#contact"
+            href="#/projects"
             className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-blue-600 hover:text-blue-800 transition-colors group"
           >
             <span className="underline underline-offset-8 decoration-blue-300 group-hover:decoration-blue-600 transition-all">
@@ -337,7 +337,7 @@ export default function Projects() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </a>
           <p className="text-xs text-gray-500 mt-2">
-            Explore our complete portfolio of enterprise builds, migrations &amp; custom applications.
+            Explore our complete directory of enterprise builds, migrations &amp; custom applications.
           </p>
         </div>
       </div>

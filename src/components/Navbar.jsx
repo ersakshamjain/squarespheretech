@@ -5,15 +5,16 @@ export default function Navbar({ currentPage = 'home' }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const isAbout = currentPage === 'about';
+  const isProjects = currentPage === 'projects';
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' /* To link separate page: href: '#/about', isActive: isAbout */ },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: isProjects ? '/#home' : '#home' },
+    { name: 'About', href: isProjects ? '/#about' : '#about' /* To link separate page: href: '#/about', isActive: isAbout */ },
+    { name: 'Services', href: isProjects ? '/#services' : '#services' },
+    { name: 'Projects', href: isProjects ? '#/projects' : '#projects', isActive: isProjects },
+    { name: 'Testimonials', href: isProjects ? '/#testimonials' : '#testimonials' },
+    { name: 'Team', href: isProjects ? '/#team' : '#team' },
+    { name: 'Contact', href: isProjects ? '/#contact' : '#contact' },
   ];
 
   return (
@@ -87,7 +88,7 @@ export default function Navbar({ currentPage = 'home' }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Official SquareSphere Brand Logo */}
-        <a href="#home" className="flex items-center gap-3 group">
+        <a href={isProjects ? "/#home" : "#home"} className="flex items-center gap-3 group">
           <div className="flex items-center gap-2.5">
             <img src="/brand/logo-mark.png" alt="SquareSphere Technologies" className="w-10 h-10 object-contain drop-shadow-[0_4px_14px_rgba(0,122,255,0.45)] transition-transform duration-300 group-hover:scale-105" />
             <div className="flex flex-col">

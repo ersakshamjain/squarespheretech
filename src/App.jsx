@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
@@ -17,23 +17,28 @@ import CtaBanner from './components/CtaBanner';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import ProjectsPage from './pages/ProjectsPage';
 // === DEDICATED ABOUT PAGE (Uncomment when needed) ===
 // import AboutPage from './pages/AboutPage';
 
 export default function App() {
-  /* === DEDICATED ABOUT PAGE ROUTING (Uncomment when needed) ===
   const getPage = () => {
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
+    if (path === '/projects' || path.startsWith('/projects/') || hash === '#/projects' || hash === '#projects-page') {
+      return 'projects';
+    }
+    /* === DEDICATED ABOUT PAGE ROUTING (Uncomment when needed) ===
     if (path === '/about' || path.startsWith('/about/') || hash === '#/about' || hash === '#about-page') {
       return 'about';
     }
+    ============================================================= */
     return 'home';
   };
 
-  const [currentPage, setCurrentPage] = React.useState(getPage);
+  const [currentPage, setCurrentPage] = useState(getPage);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleLocationChange = () => {
       setCurrentPage(getPage());
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,6 +52,7 @@ export default function App() {
     };
   }, []);
 
+  /* === DEDICATED ABOUT PAGE VIEW (Uncomment when needed) ===
   if (currentPage === 'about') {
     return (
       <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-500 selection:text-white relative">
@@ -60,6 +66,19 @@ export default function App() {
     );
   }
   ============================================================= */
+
+  if (currentPage === 'projects') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-gray-900 selection:bg-cyan-500 selection:text-white relative">
+        <Navbar currentPage="projects" />
+        <main>
+          <ProjectsPage />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 selection:bg-cyan-500 selection:text-white relative">
