@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, Zap, TrendingUp, Users } from 'lucide-react';
+import { Layers, Zap, TrendingUp, Users, ArrowRight } from 'lucide-react';
 
 export default function About() {
   const pillars = [
@@ -60,6 +60,17 @@ export default function About() {
               </div>
             );
           })}
+        </div>
+
+        {/* Link to Dedicated About Page */}
+        <div className="mt-12 text-center">
+          <a
+            href="#/about"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:scale-[1.02] active:scale-[0.98] transition"
+          >
+            <span>Read Our Full Story &amp; Founder's Vision</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

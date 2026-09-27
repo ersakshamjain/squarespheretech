@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowRight, MessageCircle } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ currentPage = 'home' }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const isAbout = currentPage === 'about';
+
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: isAbout ? '/#home' : '#home' },
+    { name: 'About', href: '#/about', isActive: isAbout },
+    { name: 'Services', href: isAbout ? '/#services' : '#services' },
+    { name: 'Projects', href: isAbout ? '/#projects' : '#projects' },
+    { name: 'Testimonials', href: isAbout ? '/#testimonials' : '#testimonials' },
+    { name: 'Team', href: isAbout ? '/#team' : '#team' },
+    { name: 'Contact', href: isAbout ? '/#contact' : '#contact' },
   ];
 
   return (
@@ -98,7 +100,11 @@ export default function Navbar() {
         {/* Desktop Nav Links (High Visibility Hover) */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`nav-link ${link.isActive ? 'text-[#38BDF8] !text-cyan-400 bg-white/10 font-bold' : ''}`}
+            >
               {link.name}
             </a>
           ))}

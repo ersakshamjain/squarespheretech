@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About SquareSphere Technologies — Founder's Vision & Engineering Principles</title>
+  <link rel="icon" type="image/png" href="public/brand/logo-mark.png">
+  <meta name="description" content="Learn about SquareSphere Technologies, our founder Saksham Jain, engineering principles, team, and global enterprise commerce track record.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cyan: '#12C2E9',
+              blue: '#2A4CF0',
+              purple: '#8A2387',
+              dark: '#030712',
+              cardDark: '#0A0F1D',
+              borderDark: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #030712;
+      color: #F8FAFC;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #12C2E9 0%, #2A4CF0 50%, #C471ED 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.3);
+    }
+    /* Solid Dark Glassmorphism Header */
+    header.site-header {
+      background-color: #030712 !important;
+      background: rgba(3, 7, 18, 0.98) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
+    }
+    .nav-link {
+      position: relative;
+      color: #E2E8F0 !important;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover {
+      color: #38BDF8 !important;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 16px rgba(18, 194, 233, 0.25);
+    }
+    @keyframes marqueeNews {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-news-ticker {
+      display: inline-flex;
+      animation: marqueeNews 48s linear infinite;
+    }
+    .ticker-wrapper:hover .animate-news-ticker {
+      animation-play-state: paused;
+    }
+    @keyframes borderBeamMove {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .running-border-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      padding: 2px;
+      display: inline-flex;
+      box-shadow: 0 0 25px rgba(18, 194, 233, 0.35);
+    }
+    .running-border-box::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 220%;
+      height: 220%;
+      background: conic-gradient(from 0deg, transparent 0deg, #12c2e9 50deg, #2a4cf0 110deg, transparent 170deg, #c471ed 230deg, #12c2e9 290deg, transparent 360deg);
+      animation: borderBeamMove 2.6s linear infinite;
+    }
+    .running-border-inner {
+      position: relative;
+      z-index: 1;
+      border-radius: calc(0.75rem - 2px);
+      background: #050B18;
+      transition: all 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-[#030712] text-white">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="site-header fixed top-0 left-0 right-0 z-50 transition-all">
+    <!-- Announcement Ticker -->
+    <div class="ticker-wrapper bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 relative overflow-hidden z-20 select-none">
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#030712] to-transparent z-10"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#030712] to-transparent z-10"></div>
+
+      <div class="flex overflow-hidden whitespace-nowrap">
+        <div class="animate-news-ticker flex items-center gap-8 text-[11px] sm:text-xs text-gray-200 flex-shrink-0 pr-8">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Live Update
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-cyan-400 font-bold">🚀 Q2/Q3 Onboarding:</span>
+            <span>Accepting 3 Enterprise Projects for Scaled Commerce &amp; Headless Engineering</span>
+            <a href="preview.html#contact" class="text-cyan-300 font-bold underline underline-offset-2 hover:text-white transition">Claim Slot &rarr;</a>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-amber-400 font-bold">⚡ Certified Partners:</span>
+            <span>Accredited Experts in Shopify Plus, Adobe Magento, Shopware, Google &amp; Meta</span>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🌐 Global Delivery:</span>
+            <span>40+ High-Performance Commerce Platforms Deployed Across USA, UK, UAE &amp; India (99.9% Uptime)</span>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-purple-400 font-bold">💬 Instant Technical Scoping:</span>
+            <span>Direct WhatsApp Chat with Senior Technical Architect within 15 Mins</span>
+            <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="text-emerald-400 font-bold underline underline-offset-2 hover:text-emerald-300 transition">WhatsApp Now 💬</a>
+          </span>
+        </div>
+        <div class="animate-news-ticker flex items-center gap-8 text-[11px] sm:text-xs text-gray-200 flex-shrink-0 pr-8" aria-hidden="true">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold text-[10px] tracking-wider uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Live Update
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-cyan-400 font-bold">🚀 Q2/Q3 Onboarding:</span>
+            <span>Accepting 3 Enterprise Projects for Scaled Commerce &amp; Headless Engineering</span>
+            <a href="preview.html#contact" class="text-cyan-300 font-bold underline underline-offset-2 hover:text-white transition">Claim Slot &rarr;</a>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-amber-400 font-bold">⚡ Certified Partners:</span>
+            <span>Accredited Experts in Shopify Plus, Adobe Magento, Shopware, Google &amp; Meta</span>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🌐 Global Delivery:</span>
+            <span>40+ High-Performance Commerce Platforms Deployed Across USA, UK, UAE &amp; India (99.9% Uptime)</span>
+          </span>
+          <span class="text-gray-600">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="text-purple-400 font-bold">💬 Instant Technical Scoping:</span>
+            <span>Direct WhatsApp Chat with Senior Technical Architect within 15 Mins</span>
+            <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="text-emerald-400 font-bold underline underline-offset-2 hover:text-emerald-300 transition">WhatsApp Now 💬</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="preview.html" class="flex items-center gap-3 group">
+        <div class="flex items-center gap-2.5">
+          <img src="public/brand/logo-mark.png" alt="SquareSphere Technologies" class="w-10 h-10 object-contain drop-shadow-[0_4px_14px_rgba(0,122,255,0.45)] transition-transform duration-300 group-hover:scale-105">
+          <div class="flex flex-col">
+            <span class="text-white font-extrabold text-lg sm:text-xl tracking-tight font-heading leading-tight">SquareSphere</span>
+            <span class="text-[#12C2E9] text-[8.5px] sm:text-[9.5px] font-bold tracking-[0.22em] -mt-0.5">TECHNOLOGIES</span>
+          </div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="preview.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link text-[#38BDF8] !text-cyan-400 bg-white/10 font-bold">About</a>
+        <a href="preview.html#services" class="nav-link">Services</a>
+        <a href="preview.html#projects" class="nav-link">Projects</a>
+        <a href="preview.html#testimonials" class="nav-link">Testimonials</a>
+        <a href="preview.html#team" class="nav-link">Team</a>
+        <a href="preview.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center">
+        <div class="running-border-box shadow-lg shadow-cyan-500/20">
+          <a href="preview.html#contact" class="running-border-inner px-5 py-2.5 text-white text-sm font-semibold tracking-wide flex items-center gap-2 hover:text-cyan-300 transition-colors">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Get a Free Consultation
+          </a>
+        </div>
+      </div>
+
+      <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg bg-gray-900/60 border border-gray-800" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#030712]/98 backdrop-blur-2xl border-b border-gray-800/90 px-5 pt-3 pb-6 space-y-2 shadow-2xl">
+      <div class="space-y-1">
+        <a href="preview.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-sm font-semibold">
+          <span>Home</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+        </a>
+        <a href="about.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-cyan-400 bg-white/10 text-sm font-bold">
+          <span>About (Current)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-cyan-400"></i>
+        </a>
+        <a href="preview.html#services" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-sm font-semibold">
+          <span>Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+        </a>
+        <a href="preview.html#projects" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-sm font-semibold">
+          <span>Projects</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+        </a>
+        <a href="preview.html#team" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-sm font-semibold">
+          <span>Team</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+        </a>
+        <a href="preview.html#contact" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-sm font-semibold">
+          <span>Contact</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+        </a>
+      </div>
+
+      <div class="pt-3">
+        <a href="preview.html#contact" class="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 active:scale-98 transition-all">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          Get a Free Consultation
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="pt-2 text-center">
+        <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 font-medium py-1.5 px-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          Direct WhatsApp Scoping: +91 7427097207
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28">
+
+    <!-- ================= 1. HERO SECTION ================= -->
+    <section class="relative py-16 sm:py-24 overflow-hidden border-b border-gray-800/80">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[400px] bg-gradient-to-b from-cyan-500/15 via-blue-600/10 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-6">
+          <a href="preview.html" class="hover:text-cyan-400 transition">Home</a>
+          <span class="text-gray-600">/</span>
+          <span class="text-cyan-400 font-semibold">About SquareSphere</span>
+        </div>
+
+        <div class="max-w-4xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-6">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> High-Performance Digital Commerce Engineering
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-heading leading-[1.12]">
+            Engineering Digital Experiences That <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#12C2E9] via-[#38BDF8] to-[#C471ED]">Actually Compound.</span>
+          </h1>
+          <p class="text-gray-300 mt-6 text-base sm:text-xl leading-relaxed max-w-3xl">
+            We founded <strong class="text-white font-semibold">SquareSphere Technologies</strong> to eliminate the frustration of bloated agencies, junior developer hand-offs, and crippling technical debt. We are a senior engineering squad that builds sub-second, resilient commerce platforms built to handle millions in revenue.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 mt-8">
+            <a href="#founder-story" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2">
+              <span>Read Our Story</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-[#0A0F1D] border border-gray-700 hover:border-emerald-500/40 text-gray-200 hover:text-emerald-400 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+              <span>Chat with Senior Tech Lead</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Core Metrics -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16 pt-12 border-t border-gray-800/80">
+          <div class="p-5 rounded-2xl bg-[#0A0F1D] border border-gray-800 hover:border-cyan-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-heading">
+              40+
+            </div>
+            <div class="text-xs sm:text-sm font-semibold text-white mt-1">Enterprise Stores Delivered</div>
+            <div class="text-[11px] text-gray-400 mt-1">Across USA, UK, UAE &amp; India</div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#0A0F1D] border border-gray-800 hover:border-cyan-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 font-heading">
+              99.9%
+            </div>
+            <div class="text-xs sm:text-sm font-semibold text-white mt-1">Uptime SLA Reliability</div>
+            <div class="text-[11px] text-gray-400 mt-1">Zero downtime during flash sales</div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#0A0F1D] border border-gray-800 hover:border-cyan-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 font-heading">
+              $50M+
+            </div>
+            <div class="text-xs sm:text-sm font-semibold text-white mt-1">Client GMV Processed</div>
+            <div class="text-[11px] text-gray-400 mt-1">Handled via our custom architectures</div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#0A0F1D] border border-gray-800 hover:border-cyan-500/40 transition">
+            <div class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 font-heading">
+              &lt; 1.2s
+            </div>
+            <div class="text-xs sm:text-sm font-semibold text-white mt-1">Sub-Second Mobile LCP</div>
+            <div class="text-[11px] text-gray-400 mt-1">90+ Lighthouse Core Web Vitals</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. FOUNDER'S STORY ================= -->
+    <section id="founder-story" class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <div class="lg:col-span-5">
+            <div class="relative group">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] opacity-40 blur-xl group-hover:opacity-75 transition duration-500"></div>
+
+              <div class="relative bg-[#0A0F1D] rounded-3xl border border-gray-800 overflow-hidden p-6 sm:p-8">
+                <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-gradient-to-tr from-[#12C2E9] to-[#2A4CF0] relative">
+                  <img src="public/team/saksham-jain.jpg" alt="Saksham Jain - Founder & Lead Technologist" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+                  <div class="absolute bottom-3 left-3 right-3 px-3 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span class="text-[11px] font-semibold text-white">Active Tech Lead</span>
+                    </div>
+                    <span class="text-[10px] text-cyan-300 font-mono">100% In-House</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-2xl font-bold text-white font-heading">Saksham Jain</h3>
+                    <p class="text-sm font-medium text-cyan-400 mt-0.5">Founder &amp; Lead Technologist</p>
+                  </div>
+                  <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-cyan-400 flex items-center justify-center font-mono font-bold text-sm">
+                    SJ
+                  </div>
+                </div>
+
+                <p class="text-xs text-gray-400 mt-4 leading-relaxed border-t border-gray-800/80 pt-4">
+                  Architecting scalable eCommerce platforms, decoupled headless Next.js applications, and high-concurrency cloud infrastructures.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] text-gray-300 border border-white/10">Shopify Plus</span>
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] text-gray-300 border border-white/10">Magento B2B</span>
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] text-gray-300 border border-white/10">Next.js 14</span>
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] text-gray-300 border border-white/10">AWS Cloud</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-cyan-400 text-xs font-semibold mb-4">
+              <i data-lucide="terminal" class="w-3.5 h-3.5"></i> The Founder's Note
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight">
+              Why I Started SquareSphere Technologies.
+            </h2>
+
+            <div class="space-y-4 text-gray-300 text-base sm:text-lg leading-relaxed mt-6">
+              <p>
+                Having spent years deep inside the digital commerce trenches, I noticed a painful pattern across the agency landscape:
+              </p>
+              <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-sm text-gray-300">
+                <strong class="text-rose-400 font-semibold block mb-1">The Traditional Agency Trap:</strong>
+                Creative studios make visually appealing mockups that load at a snail's pace and crash on Black Friday, while low-cost outsourcing shops write spaghetti code that requires complete rebuilding within 12 months.
+              </div>
+              <p>
+                I built <strong class="text-white">SquareSphere</strong> to be the definitive antithesis: an elite, engineering-first technology agency where <span class="text-cyan-300 font-semibold">every store is treated like a mission-critical revenue engine</span>.
+              </p>
+              <p>
+                When you work with us, you don't talk to non-technical account managers reading off a script. You talk directly with technical architects who write clean code, optimize database indexes, and personally guarantee your store's uptime and checkout velocity.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 pt-6 border-t border-gray-800">
+              <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>100% In-House Dedicated Senior Squad</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>Full IP &amp; Source Code Ownership</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>Daily Updates via Private Slack/WhatsApp</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>99.9% Uptime SLA Contract Protection</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. 4 CORE PILLARS ================= -->
+    <section class="py-20 md:py-28 bg-[#050B18] border-y border-gray-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i> Architectural DNA
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Our 4 Engineering Pillars
+          </h2>
+          <p class="text-gray-400 mt-4 text-base sm:text-lg">
+            Every system we ship is governed by four uncompromising engineering principles.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div class="bg-[#0A0F1D] p-8 sm:p-10 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-cyan-400 border border-cyan-500/30 flex items-center justify-center mb-6">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white font-heading mb-3">Zero Technical Debt Architecture</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                We do not build fragile websites that collapse when traffic surges 10x. Every line of code is clean, modular, and type-safe — designed to scale for years without costly rewrites.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-8 sm:p-10 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center mb-6">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white font-heading mb-3">Sub-Second Speed as a Feature</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Speed directly dictates revenue. We rigorously optimize every asset, query, and edge cache to guarantee 90+ Core Web Vitals and sub-1.5s mobile LCP on every deployment.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-8 sm:p-10 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mb-6">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white font-heading mb-3">Revenue-First Engineering</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                We are software engineers who think like eCommerce founders. Every checkout flow, 1-click upsell, and API integration is measured strictly by conversion rate and ROI.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-8 sm:p-10 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/30 flex items-center justify-center mb-6">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white font-heading mb-3">Direct Senior Engineer Access</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Zero non-technical account managers playing telephone. You collaborate directly with senior technical architects on Slack/WhatsApp with daily transparent updates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. MILESTONES & TIMELINE ================= -->
+    <section class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold mb-4">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i> Proven Growth Track Record
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Our Growth Journey &amp; Milestones
+          </h2>
+          <p class="text-gray-400 mt-4 text-base sm:text-lg">
+            From building high-converting stores for local brands to delivering enterprise-grade commerce platforms worldwide.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-600/30 pointer-events-none"></div>
+
+          <div class="space-y-8 md:space-y-12">
+            <!-- Milestone 2022 -->
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+              <div class="w-full md:w-1/2">
+                <div class="bg-[#0A0F1D] p-7 sm:p-8 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition shadow-xl">
+                  <div class="flex items-center justify-between gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+                      The Inception
+                    </span>
+                    <span class="text-2xl font-black text-white/40 font-mono">2022</span>
+                  </div>
+                  <h4 class="text-xl font-bold text-white font-heading mb-2">Founded on Engineering First Principles</h4>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    Started by engineering bespoke high-converting Shopify, WooCommerce, and custom web applications for emerging consumer brands. Eliminated junior agency fluff from day one.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:flex w-10 h-10 rounded-full bg-[#0A0F1D] border-2 border-cyan-400 shadow-[0_0_15px_rgba(18,194,233,0.5)] items-center justify-center flex-shrink-0 z-10">
+                <div class="w-3 h-3 rounded-full bg-cyan-400"></div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+
+            <!-- Milestone 2023 -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12">
+              <div class="w-full md:w-1/2">
+                <div class="bg-[#0A0F1D] p-7 sm:p-8 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition shadow-xl">
+                  <div class="flex items-center justify-between gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-300">
+                      Enterprise Expansion
+                    </span>
+                    <span class="text-2xl font-black text-white/40 font-mono">2023</span>
+                  </div>
+                  <h4 class="text-xl font-bold text-white font-heading mb-2">B2B Portals &amp; Complex Migrations</h4>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    Scaled into 50,000+ SKU Magento 2 B2B distributor architectures, European PrestaShop operations, and real-time NetSuite/SAP ERP database synchronization pipelines.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:flex w-10 h-10 rounded-full bg-[#0A0F1D] border-2 border-orange-400 shadow-[0_0_15px_rgba(249,115,22,0.5)] items-center justify-center flex-shrink-0 z-10">
+                <div class="w-3 h-3 rounded-full bg-orange-400"></div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+
+            <!-- Milestone 2024 -->
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+              <div class="w-full md:w-1/2">
+                <div class="bg-[#0A0F1D] p-7 sm:p-8 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition shadow-xl">
+                  <div class="flex items-center justify-between gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300">
+                      Headless Revolution
+                    </span>
+                    <span class="text-2xl font-black text-white/40 font-mono">2024</span>
+                  </div>
+                  <h4 class="text-xl font-bold text-white font-heading mb-2">Sub-Second Next.js Storefronts</h4>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    Pioneered decoupled commerce architectures with Next.js 14 SSR, Algolia instant visual search, and edge serverless deployments that lowered mobile LCP under 0.9s.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:flex w-10 h-10 rounded-full bg-[#0A0F1D] border-2 border-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.5)] items-center justify-center flex-shrink-0 z-10">
+                <div class="w-3 h-3 rounded-full bg-purple-400"></div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+
+            <!-- Milestone 2025-2026 -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12">
+              <div class="w-full md:w-1/2">
+                <div class="bg-[#0A0F1D] p-7 sm:p-8 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition shadow-xl">
+                  <div class="flex items-center justify-between gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
+                      Global Scale
+                    </span>
+                    <span class="text-2xl font-black text-white/40 font-mono">2025–26</span>
+                  </div>
+                  <h4 class="text-xl font-bold text-white font-heading mb-2">40+ Enterprise Deployments &amp; AI Pipelines</h4>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    Delivering end-to-end commerce platforms across the USA, UK, UAE, EU, and India, with 99.9% uptime SLA contracts, automated CI/CD, and custom AI commerce workflows.
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:flex w-10 h-10 rounded-full bg-[#0A0F1D] border-2 border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.5)] items-center justify-center flex-shrink-0 z-10">
+                <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. LEADERSHIP & CORE TEAM ================= -->
+    <section class="py-20 md:py-28 bg-[#050B18] border-t border-gray-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-cyan-400 text-xs font-semibold mb-4">
+            <i data-lucide="users" class="w-3.5 h-3.5"></i> The People Behind The Code
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Meet Our Leadership &amp; Engineering Team
+          </h2>
+          <p class="text-gray-400 mt-4 text-base sm:text-lg">
+            Seasoned software architects, UI/UX strategists, and operations leaders dedicated to your digital growth.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Member 1: Saksham Jain -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-tr from-[#12C2E9] to-[#2A4CF0] flex-shrink-0 border-2 border-cyan-400/40">
+                  <img src="public/team/saksham-jain.jpg" alt="Saksham Jain" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Saksham Jain</h4>
+                  <p class="text-xs font-semibold text-cyan-400 mt-0.5">Founder &amp; Lead Technologist</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Enterprise tech architect spearheading technical vision, headless commerce engineering, and cloud scalability for global retail brands.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">System Architecture</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Shopify Plus</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Next.js 14</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">AWS DevOps</span>
+            </div>
+          </div>
+
+          <!-- Member 2: Harshil Bansal -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-tr from-[#064E3B] to-[#059669] flex-shrink-0 border-2 border-emerald-400/40">
+                  <img src="public/team/harshil-bansal.jpg" alt="Harshil Bansal" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Harshil Bansal</h4>
+                  <p class="text-xs font-semibold text-emerald-400 mt-0.5">Finance &amp; Operations Manager</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Directing fiscal strategy, commercial operations, project resource allocation, and international contract governance.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Fiscal Strategy</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Ops Scaling</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Contract Governance</span>
+            </div>
+          </div>
+
+          <!-- Member 3: Navneet Jain -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-tr from-[#1E1B4B] to-[#4338CA] flex-shrink-0 border-2 border-indigo-400/40">
+                  <img src="public/team/navneet-jain.jpg" alt="Navneet Jain" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Navneet Jain</h4>
+                  <p class="text-xs font-semibold text-indigo-400 mt-0.5">Business Development Manager</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Leading strategic international client partnerships, enterprise acquisitions, and omnichannel brand consulting across US, UK &amp; UAE.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Global Partnerships</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Enterprise Scoping</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Account Growth</span>
+            </div>
+          </div>
+
+          <!-- Member 4: Ananya Sharma -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#7928CA] to-[#FF0080] flex items-center justify-center text-white font-mono font-bold text-xl flex-shrink-0 shadow-md">
+                  AS
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Ananya Sharma</h4>
+                  <p class="text-xs font-semibold text-purple-400 mt-0.5">Lead UI/UX Designer</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Specializing in research-backed design systems, conversion-rate optimization (CRO), and seamless mobile-first checkout experiences.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Figma Systems</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">CRO Audits</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Mobile UX</span>
+            </div>
+          </div>
+
+          <!-- Member 5: Rohan Mehta -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0070F3] to-[#00DFD8] flex items-center justify-center text-white font-mono font-bold text-xl flex-shrink-0 shadow-md">
+                  RM
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Rohan Mehta</h4>
+                  <p class="text-xs font-semibold text-cyan-400 mt-0.5">Senior Full-Stack &amp; DevOps</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Building resilient backend microservices, high-throughput database syncs, Dockerized environments, and AWS serverless infrastructures.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Node.js</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">PostgreSQL</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Kubernetes</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">AWS Lambda</span>
+            </div>
+          </div>
+
+          <!-- Member 6: Priya Patel -->
+          <div class="bg-[#0A0F1D] rounded-3xl border border-gray-800 hover:border-cyan-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 card-hover shadow-xl">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#FF4B4B] to-[#FF8533] flex items-center justify-center text-white font-mono font-bold text-xl flex-shrink-0 shadow-md">
+                  PP
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-heading">Priya Patel</h4>
+                  <p class="text-xs font-semibold text-amber-400 mt-0.5">Head of QA &amp; Performance</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                Leading automated regression testing, WCAG accessibility audits, penetration testing, and Core Web Vitals benchmarking.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/80">
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Cypress E2E</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">Lighthouse 90+</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/[0.04] text-gray-300 border border-white/5">OWASP Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. 4-STEP ENGAGEMENT MODEL ================= -->
+    <section class="py-20 md:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4">
+            <i data-lucide="rocket" class="w-3.5 h-3.5"></i> High-Velocity Execution
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Our 4-Step Engagement Model
+          </h2>
+          <p class="text-gray-400 mt-4 text-base sm:text-lg">
+            A transparent, battle-tested development lifecycle engineered to ship on time and on budget.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-[#0A0F1D] p-7 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-mono mb-4">01</div>
+              <h4 class="text-lg font-bold text-white font-heading mb-2">Discovery &amp; Technical Audit</h4>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                We dissect your existing codebase, database bottlenecks, third-party apps, and conversion funnel to uncover root technical blockers.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-7 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-mono mb-4">02</div>
+              <h4 class="text-lg font-bold text-white font-heading mb-2">Architecture Blueprint &amp; UX</h4>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                We design pixel-perfect Figma component systems and define technical API schemas before writing a single line of production code.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-7 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-mono mb-4">03</div>
+              <h4 class="text-lg font-bold text-white font-heading mb-2">Bi-Weekly Sprint Engineering</h4>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                We ship production-grade code in rapid bi-weekly sprints deployed to private staging environments with automated E2E regression tests.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0A0F1D] p-7 rounded-3xl border border-gray-800 hover:border-cyan-500/40 transition-all card-hover shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-mono mb-4">04</div>
+              <h4 class="text-lg font-bold text-white font-heading mb-2">Zero-Downtime Launch &amp; SLA</h4>
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                Comprehensive cutover checklists, DNS failover routing, and 24/7 post-launch monitoring to safeguard your live order volume.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. OFFICIAL ACCREDITATIONS ================= -->
+    <section class="py-16 bg-[#050B18] border-y border-gray-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Verified Ecosystem Credentials</h3>
+          <p class="text-sm text-gray-300">Officially certified across premier commerce, cloud, and growth networks.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Shopify Plus Partner</div>
+            <div class="text-[11px] font-mono text-cyan-400 mt-1">Accredited Agency</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Adobe Solution Partner</div>
+            <div class="text-[11px] font-mono text-orange-400 mt-1">Magento Commerce</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Google Official Partner</div>
+            <div class="text-[11px] font-mono text-blue-400 mt-1">Ads &amp; Analytics</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Meta Business Partner</div>
+            <div class="text-[11px] font-mono text-cyan-400 mt-1">CAPI &amp; Growth</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Shopware Community</div>
+            <div class="text-[11px] font-mono text-purple-400 mt-1">EU Commerce</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">PrestaShop Verified</div>
+            <div class="text-[11px] font-mono text-pink-400 mt-1">Core Developer</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Cloudflare Enterprise</div>
+            <div class="text-[11px] font-mono text-amber-400 mt-1">Edge CDN &amp; Security</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[#0A0F1D] border border-gray-800 text-center">
+            <div class="text-sm font-bold text-white">Stripe Verified Partner</div>
+            <div class="text-[11px] font-mono text-emerald-400 mt-1">Global Payments</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 8. CLOSING CTA BANNER ================= -->
+    <section class="py-20 md:py-24 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-6">
+          <span>🚀 Ready To Upgrade Your Stack?</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading leading-tight">
+          Let's Engineer Your Next High-Performance Commerce Asset.
+        </h2>
+        <p class="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Speak directly with Saksham Jain and our senior technical squad. No sales fluff — just honest, actionable technical scoping.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <a href="preview.html#contact" class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#12C2E9] via-[#2A4CF0] to-[#C471ED] text-white font-bold text-sm sm:text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2">
+            <span>Schedule 15-Min Scoping Call</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+          <a href="https://wa.me/917427097207" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-[#0A0F1D] border border-gray-700 hover:border-emerald-500 text-gray-200 hover:text-emerald-400 font-bold text-sm sm:text-base transition flex items-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></i>
+            <span>Direct WhatsApp Chat</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#030712] text-white pt-16 pb-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-12 border-b border-gray-800/80">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4 group">
+            <img src="public/brand/logo-mark.png" alt="SquareSphere Technologies" class="w-9 h-9 object-contain drop-shadow-[0_4px_12px_rgba(0,122,255,0.4)]">
+            <div class="flex flex-col">
+              <span class="text-white font-extrabold text-lg tracking-tight font-heading leading-tight">SquareSphere</span>
+              <span class="text-[#12C2E9] text-[8.5px] font-bold tracking-[0.22em] -mt-0.5">TECHNOLOGIES</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
+            Engineering digital experiences, custom eCommerce stores, and growth systems designed to compound.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Company</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="about.html" class="text-cyan-400 font-semibold hover:text-white transition">About Us</a></li>
+            <li><a href="preview.html#team" class="hover:text-white transition">Team</a></li>
+            <li><a href="preview.html#projects" class="hover:text-white transition">Projects</a></li>
+            <li><a href="preview.html#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Services</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="preview.html#services" class="hover:text-white transition">Shopify &amp; Plus</a></li>
+            <li><a href="preview.html#services" class="hover:text-white transition">Magento B2B</a></li>
+            <li><a href="preview.html#services" class="hover:text-white transition">PrestaShop 8</a></li>
+            <li><a href="preview.html#services" class="hover:text-white transition">WooCommerce</a></li>
+            <li><a href="preview.html#services" class="hover:text-white transition">Headless Next.js</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Ecosystem</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="preview.html#tech-stack" class="hover:text-white transition">Next.js &amp; React</a></li>
+            <li><a href="preview.html#tech-stack" class="hover:text-white transition">AWS Cloud &amp; Edge</a></li>
+            <li><a href="preview.html#tech-stack" class="hover:text-white transition">Stripe &amp; Klarna</a></li>
+            <li><a href="preview.html#tech-stack" class="hover:text-white transition">ERP Connectors</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Direct Contact</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><span class="text-white font-medium">Phone:</span> +91 7427097207</li>
+            <li><span class="text-white font-medium">WhatsApp:</span> Available 24/7</li>
+            <li><span class="text-white font-medium">HQ:</span> Jaipur, India</li>
+            <li><span class="text-white font-medium">Delivery:</span> US, UK, UAE &amp; Global</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p>&copy; 2026 SquareSphere Technologies. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="preview.html" class="hover:text-white transition">Back to Homepage &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/917427097207"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 z-50 p-3.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
+    aria-label="Contact us on WhatsApp"
+  >
+    <i data-lucide="message-circle" class="w-7 h-7"></i>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out px-0 group-hover:px-2 text-sm font-semibold">
+      Chat with Us
+    </span>
+  </a>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>

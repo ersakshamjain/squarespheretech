@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
@@ -17,11 +17,50 @@ import CtaBanner from './components/CtaBanner';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import AboutPage from './pages/AboutPage';
 
 export default function App() {
+  const getPage = () => {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (path === '/about' || path.startsWith('/about/') || hash === '#/about' || hash === '#about-page') {
+      return 'about';
+    }
+    return 'home';
+  };
+
+  const [currentPage, setCurrentPage] = useState(getPage);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPage(getPage());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  if (currentPage === 'about') {
+    return (
+      <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-500 selection:text-white relative">
+        <Navbar currentPage="about" />
+        <main>
+          <AboutPage />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 selection:bg-cyan-500 selection:text-white relative">
-      <Navbar />
+      <Navbar currentPage="home" />
       <main>
         <Hero />
         <Partners />
