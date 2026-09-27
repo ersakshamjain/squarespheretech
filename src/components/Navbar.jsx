@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="site-header fixed top-0 left-0 right-0 z-50 transition-all">
       {/* High-Impact Top Continuous News Ticker / Announcement Bar */}
-      <div className="bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 relative overflow-hidden z-20">
+      <div className="ticker-wrapper bg-gradient-to-r from-[#030712] via-[#0A1A3A] to-[#030712] border-b border-cyan-500/25 py-2 relative overflow-hidden z-20 select-none">
         {/* Subtle Fade Edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#030712] to-transparent z-10"></div>
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#030712] to-transparent z-10"></div>

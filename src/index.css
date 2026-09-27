@@ -149,8 +149,8 @@ header.site-header {
 
 /* Continuous News Marquee Ticker (Top Header Bar) */
 @keyframes newsMarquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
 
 .animate-news-ticker {
@@ -159,8 +159,20 @@ header.site-header {
   animation: newsMarquee 38s linear infinite;
   will-change: transform;
 }
-.animate-news-ticker:hover,
-.animate-news-ticker:active {
+
+/* Pause BOTH tracks together when hovering/tapping on the wrapper so they never collide */
+.ticker-wrapper:hover .animate-news-ticker {
   animation-play-state: paused;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ticker-wrapper:hover .animate-news-ticker {
+    animation-play-state: paused;
+  }
+}
+@media (hover: none) {
+  /* On touch devices, do not pause on scroll to prevent touch collision */
+  .ticker-wrapper:hover .animate-news-ticker {
+    animation-play-state: running;
+  }
 }
 

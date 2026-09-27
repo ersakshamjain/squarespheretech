@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
 
 export default function Partners() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const touchStartX = useRef(0);
   const partners = [
     {
       name: 'Shopify',
@@ -107,152 +103,75 @@ export default function Partners() {
     }
   ];
 
-  const handleManualSlide = (slideIndex) => {
-    setIsAutoPlay(false);
-    setCurrentSlide(slideIndex);
-  };
-
-  const handlePrev = () => {
-    setIsAutoPlay(false);
-    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-  };
-
-  const handleNext = () => {
-    setIsAutoPlay(false);
-    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-  };
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      setIsAutoPlay(false);
-      if (diff > 0) {
-        setCurrentSlide(1);
-      } else {
-        setCurrentSlide(0);
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (!isAutoPlay) return;
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [isAutoPlay]);
-
   return (
-    <section className="bg-[#030712] border-t border-b border-gray-800/80 py-10 relative overflow-hidden">
+    <section id="partners" className="bg-[#030712] border-t border-b border-gray-800/80 py-12 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950/15 via-transparent to-transparent pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-10">
           <h3 className="text-xs sm:text-sm font-bold tracking-[0.2em] text-cyan-400 uppercase font-heading">
             Official Partners &amp; Experts
           </h3>
-          <p className="text-gray-400 text-xs sm:text-sm mt-1">
+          <p className="text-gray-400 text-xs sm:text-sm mt-1.5 max-w-2xl mx-auto">
             Accredited Partners with Shopify, BigCommerce, Google &amp; Meta &bull; Platform Experts in Magento, Shopware, PrestaShop &amp; WooCommerce
           </p>
         </div>
 
-        {/* 2-Slide Carousel (2x2 Grid on Mobile, 4-Cols on Desktop) */}
-        <div 
-          className="relative max-w-5xl mx-auto overflow-hidden select-none"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div 
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            {/* Slide 1: Official Partners */}
-            <div className="w-full flex-shrink-0 px-1">
-              <div className="text-center mb-2.5 sm:hidden">
-                <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider bg-cyan-950/40 px-2.5 py-0.5 rounded-full border border-cyan-800/40">
-                  Official Partners (1/2)
-                </span>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                {partners.slice(0, 4).map((partner, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
-                  >
-                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                      {partner.icon}
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
-                      <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        {/* 2 Rows on Desktop (4 each) & 4 Rows on Mobile (2 each) - No Slider */}
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          {/* Row Group 1: Official Partners */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span className="text-[11px] sm:text-xs font-bold tracking-wider text-cyan-400 uppercase">
+                Official Accredited Partners
+              </span>
+              <div className="h-px bg-gray-800/80 flex-1 ml-2"></div>
             </div>
-
-            {/* Slide 2: Platform Experts */}
-            <div className="w-full flex-shrink-0 px-1">
-              <div className="text-center mb-2.5 sm:hidden">
-                <span className="text-[11px] font-semibold text-purple-400 uppercase tracking-wider bg-purple-950/40 px-2.5 py-0.5 rounded-full border border-purple-800/40">
-                  Platform Experts (2/2)
-                </span>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                {partners.slice(4, 8).map((partner, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
-                  >
-                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                      {partner.icon}
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
-                      <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
-                    </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+              {partners.slice(0, 4).map((partner, idx) => (
+                <div
+                  key={idx}
+                  className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+                >
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    {partner.icon}
                   </div>
-                ))}
-              </div>
+                  <div className="min-w-0">
+                    <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                    <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Carousel Controls (Dots & Prev/Next Chevrons) */}
-        <div className="flex items-center justify-between max-w-5xl mx-auto mt-4 px-2">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => handleManualSlide(0)}
-              className={`h-2 transition-all rounded-full ${currentSlide === 0 ? 'w-7 bg-cyan-400' : 'w-2 bg-gray-700 hover:bg-gray-600'}`}
-              aria-label="Go to Official Partners slide"
-            />
-            <button
-              onClick={() => handleManualSlide(1)}
-              className={`h-2 transition-all rounded-full ${currentSlide === 1 ? 'w-7 bg-purple-400' : 'w-2 bg-gray-700 hover:bg-gray-600'}`}
-              aria-label="Go to Platform Experts slide"
-            />
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrev}
-              className="w-8 h-8 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-8 h-8 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+          {/* Row Group 2: Platform Experts */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+              <span className="text-[11px] sm:text-xs font-bold tracking-wider text-purple-400 uppercase">
+                Commerce Platform Experts
+              </span>
+              <div className="h-px bg-gray-800/80 flex-1 ml-2"></div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+              {partners.slice(4, 8).map((partner, idx) => (
+                <div
+                  key={idx}
+                  className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+                >
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    {partner.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                    <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
