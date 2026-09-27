@@ -1,49 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Partners() {
-  const scrollRef = useRef(null);
-  const isPausedRef = useRef(false);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    let animId;
-    const step = () => {
-      if (!isPausedRef.current && el) {
-        el.scrollLeft += 0.65;
-        if (el.scrollLeft >= el.scrollWidth / 2) {
-          el.scrollLeft -= el.scrollWidth / 2;
-        }
-      }
-      animId = requestAnimationFrame(step);
-    };
-
-    animId = requestAnimationFrame(step);
-
-    const freeze = () => {
-      isPausedRef.current = true;
-    };
-
-    el.addEventListener('touchstart', freeze, { passive: true });
-    el.addEventListener('mousedown', freeze);
-    el.addEventListener('wheel', freeze, { passive: true });
-
-    return () => {
-      cancelAnimationFrame(animId);
-      el.removeEventListener('touchstart', freeze);
-      el.removeEventListener('mousedown', freeze);
-      el.removeEventListener('wheel', freeze);
-    };
-  }, []);
-
-  const handleManualScroll = (delta) => {
-    isPausedRef.current = true;
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: delta, behavior: 'smooth' });
-    }
-  };
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const touchStartX = useRef(0);
   const partners = [
     {
       name: 'Shopify',
@@ -146,10 +107,44 @@ export default function Partners() {
     }
   ];
 
-  const row1 = partners.slice(0, 4);
-  const row2 = partners.slice(4, 8);
-  const infiniteRow1 = [...row1, ...row1];
-  const infiniteRow2 = [...row2, ...row2];
+  const handleManualSlide = (slideIndex) => {
+    setIsAutoPlay(false);
+    setCurrentSlide(slideIndex);
+  };
+
+  const handlePrev = () => {
+    setIsAutoPlay(false);
+    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+  };
+
+  const handleNext = () => {
+    setIsAutoPlay(false);
+    setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      setIsAutoPlay(false);
+      if (diff > 0) {
+        setCurrentSlide(1);
+      } else {
+        setCurrentSlide(0);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isAutoPlay]);
 
   return (
     <section className="bg-[#030712] border-t border-b border-gray-800/80 py-10 relative overflow-hidden">
@@ -166,74 +161,101 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* Smooth Continuous 2-Row Partners Ticker */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Fade Edges */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-[#030712] to-transparent z-10"></div>
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-[#030712] to-transparent z-10"></div>
-
-          {/* 2-Row Infinite Continuous Drift Track */}
-          <div
-            ref={scrollRef}
-            className="overflow-x-auto scrollbar-hide flex flex-col gap-3 sm:gap-3.5 py-1 cursor-grab select-none"
+        {/* 2-Slide Carousel (2x2 Grid on Mobile, 4-Cols on Desktop) */}
+        <div 
+          className="relative max-w-5xl mx-auto overflow-hidden select-none"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div 
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            {/* Row 1: Official Partners */}
-            <div className="flex gap-3 sm:gap-3.5 w-max items-center">
-              {infiniteRow1.map((partner, idx) => (
-                <div
-                  key={`r1-${idx}`}
-                  className={`min-w-[195px] sm:min-w-[215px] flex-shrink-0 flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
-                >
-                  <div className={`w-9 h-9 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                    {partner.icon}
+            {/* Slide 1: Official Partners */}
+            <div className="w-full flex-shrink-0 px-1">
+              <div className="text-center mb-2.5 sm:hidden">
+                <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider bg-cyan-950/40 px-2.5 py-0.5 rounded-full border border-cyan-800/40">
+                  Official Partners (1/2)
+                </span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                {partners.slice(0, 4).map((partner, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+                  >
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                      {partner.icon}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                      <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
-                    <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Row 2: Platform Experts */}
-            <div className="flex gap-3 sm:gap-3.5 w-max items-center">
-              {infiniteRow2.map((partner, idx) => (
-                <div
-                  key={`r2-${idx}`}
-                  className={`min-w-[195px] sm:min-w-[215px] flex-shrink-0 flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
-                >
-                  <div className={`w-9 h-9 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                    {partner.icon}
+            {/* Slide 2: Platform Experts */}
+            <div className="w-full flex-shrink-0 px-1">
+              <div className="text-center mb-2.5 sm:hidden">
+                <span className="text-[11px] font-semibold text-purple-400 uppercase tracking-wider bg-purple-950/40 px-2.5 py-0.5 rounded-full border border-purple-800/40">
+                  Platform Experts (2/2)
+                </span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                {partners.slice(4, 8).map((partner, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+                  >
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                      {partner.icon}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                      <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
-                    <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Subtle Prev / Next Controls */}
-          <div className="flex items-center justify-end mt-3 px-1">
-            <div className="flex items-center gap-1.5">
-              <button
-                onClick={() => handleManualScroll(-220)}
-                className="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
-                aria-label="Previous Partners"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => handleManualScroll(220)}
-                className="w-7 h-7 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
-                aria-label="Next Partners"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Carousel Controls (Dots & Prev/Next Chevrons) */}
+        <div className="flex items-center justify-between max-w-5xl mx-auto mt-4 px-2">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleManualSlide(0)}
+              className={`h-2 transition-all rounded-full ${currentSlide === 0 ? 'w-7 bg-cyan-400' : 'w-2 bg-gray-700 hover:bg-gray-600'}`}
+              aria-label="Go to Official Partners slide"
+            />
+            <button
+              onClick={() => handleManualSlide(1)}
+              className={`h-2 transition-all rounded-full ${currentSlide === 1 ? 'w-7 bg-purple-400' : 'w-2 bg-gray-700 hover:bg-gray-600'}`}
+              aria-label="Go to Platform Experts slide"
+            />
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handlePrev}
+              className="w-8 h-8 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="w-8 h-8 rounded-lg border border-gray-800 bg-[#090F1E] hover:bg-gray-800 hover:border-gray-700 text-gray-300 flex items-center justify-center transition active:scale-95"
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );

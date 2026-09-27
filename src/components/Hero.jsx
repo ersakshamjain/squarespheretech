@@ -165,11 +165,11 @@ export default function Hero() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Badge */}
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-[11px] sm:text-xs text-gray-300 mb-8 backdrop-blur-md shadow-md max-w-full">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gray-900/90 border border-gray-800 text-[10.5px] sm:text-xs text-gray-300 mb-8 backdrop-blur-md shadow-md max-w-full">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse flex-shrink-0"></span>
           <span className="font-bold text-cyan-400 tracking-wide uppercase text-[10px] sm:text-[11px] flex-shrink-0">SquareSphere</span>
           <span className="text-gray-600 flex-shrink-0">•</span>
-          <span className="text-gray-300 font-medium whitespace-nowrap">Global IT Partner <span className="hidden xs:inline">For Growing Brands</span></span>
+          <span className="text-gray-300 font-medium whitespace-nowrap">Global IT Partner For Growing Brands</span>
         </div>
 
         {/* Main Heading */}
