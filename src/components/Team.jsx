@@ -140,42 +140,42 @@ export default function Team() {
   return (
     <section id="team" className="py-20 md:py-28 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-heading">
-              Meet The Team Behind SquareSphere
-            </h2>
-            <p className="text-gray-500 mt-3 text-base sm:text-lg max-w-2xl">
-              A focused squad of engineers, designers and strategists working as one unit on every project.
-            </p>
+        {/* Section Header (Centered like Projects) */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
+            <span>Leadership &amp; Engineering Squad</span>
           </div>
-
-          {/* Navigation Controls */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => slide(-1)}
-              className="w-11 h-11 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-400 flex items-center justify-center text-gray-700 shadow-sm transition active:scale-95"
-              aria-label="Previous Team Members"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => slide(1)}
-              className="w-11 h-11 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-400 flex items-center justify-center text-gray-700 shadow-sm transition active:scale-95"
-              aria-label="Next Team Members"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight font-heading">
+            Meet The Team Behind SquareSphere
+          </h2>
+          <p className="text-gray-500 mt-3 text-base sm:text-lg leading-relaxed">
+            A focused squad of engineers, designers and strategists working as one unit on every project.
+          </p>
         </div>
 
-        {/* 3-Cards Carousel Slider Track */}
-        <div
-          ref={sliderRef}
-          onScroll={handleScroll}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-1 -mx-4 px-4 sm:mx-0 sm:px-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
+        {/* 3-Cards Carousel Slider Track with Flanking Desktop Arrows */}
+        <div className="relative group/team">
+          <button
+            onClick={() => slide(-1)}
+            className="hidden md:flex absolute -left-3 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-gray-200 shadow-xl text-gray-700 hover:text-blue-600 hover:border-blue-400 hover:scale-110 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            aria-label="Previous Team Members"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => slide(1)}
+            className="hidden md:flex absolute -right-3 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-gray-200 shadow-xl text-gray-700 hover:text-blue-600 hover:border-blue-400 hover:scale-110 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            aria-label="Next Team Members"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          <div
+            ref={sliderRef}
+            onScroll={handleScroll}
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-1 -mx-4 px-4 sm:mx-0 sm:px-0"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
           {team.map((member, idx) => (
             <div
               key={idx}
@@ -211,6 +211,7 @@ export default function Team() {
               </p>
             </div>
           ))}
+          </div>
         </div>
 
         {/* Mobile Carousel Navigation for Team */}

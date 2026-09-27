@@ -93,12 +93,16 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-28 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-heading">
+        {/* Section Header (Centered like Projects) */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
+            <span>Direct Engineering Access</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight font-heading">
             Tell Us About Your Project
           </h2>
-          <p className="text-gray-500 mt-3 text-base sm:text-lg">
-            Fill the form and our team will get back to you within one business day.
+          <p className="text-gray-500 mt-3 text-base sm:text-lg leading-relaxed">
+            Fill out the brief and our senior technical team will respond within 24 hours with an actionable roadmap.
           </p>
         </div>
 

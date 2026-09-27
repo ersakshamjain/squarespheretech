@@ -101,42 +101,42 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 md:py-28 bg-[#FAFAFA] border-b border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-heading">
-              What Clients Say About Working With Us
-            </h2>
-            <p className="text-gray-500 mt-3 text-base sm:text-lg max-w-2xl">
-              Real feedback from enterprise founders, CTOs and eCommerce leaders who scaled their digital presence with SquareSphere.
-            </p>
+        {/* Section Header (Centered like Projects) */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
+            <span className="text-amber-500 font-bold">★★★★★</span> Verified Client Feedback
           </div>
-
-          {/* Navigation Controls */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => scroll(-1)}
-              className="w-11 h-11 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-400 flex items-center justify-center text-gray-700 shadow-sm transition active:scale-95"
-              aria-label="Previous Testimonials"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll(1)}
-              className="w-11 h-11 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-400 flex items-center justify-center text-gray-700 shadow-sm transition active:scale-95"
-              aria-label="Next Testimonials"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight font-heading">
+            What Clients Say About Working With Us
+          </h2>
+          <p className="text-gray-500 mt-3 text-base sm:text-lg leading-relaxed">
+            Real feedback from enterprise founders, CTOs and eCommerce leaders who scaled their digital presence with SquareSphere.
+          </p>
         </div>
 
-        {/* 3-Cards Carousel Slider */}
-        <div
-          ref={sliderRef}
-          onScroll={handleScroll}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-1 -mx-4 px-4 sm:mx-0 sm:px-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
+        {/* 3-Cards Carousel Slider with Flanking Desktop Arrows */}
+        <div className="relative group/testi">
+          <button
+            onClick={() => scroll(-1)}
+            className="hidden md:flex absolute -left-3 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-gray-200 shadow-xl text-gray-700 hover:text-blue-600 hover:border-blue-400 hover:scale-110 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            aria-label="Previous Testimonials"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll(1)}
+            className="hidden md:flex absolute -right-3 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-gray-200 shadow-xl text-gray-700 hover:text-blue-600 hover:border-blue-400 hover:scale-110 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            aria-label="Next Testimonials"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          <div
+            ref={sliderRef}
+            onScroll={handleScroll}
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 px-1 -mx-4 px-4 sm:mx-0 sm:px-0"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
           {testimonials.map((t, idx) => (
             <div
               key={idx}
@@ -171,6 +171,7 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
+          </div>
         </div>
 
         {/* Mobile Carousel Navigation for Testimonials */}

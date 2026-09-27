@@ -19,10 +19,16 @@ export default function Comparison() {
   return (
     <section className="py-20 md:py-28 bg-[#FAFAFA] border-b border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight max-w-3xl font-heading">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
+            <span>The SquareSphere Advantage</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight font-heading">
             Why Businesses Choose SquareSphere Over A Typical Agency
           </h2>
+          <p className="text-gray-500 mt-3 text-base sm:text-lg leading-relaxed">
+            Traditional agencies deliver bloated templates and blame platform limitations. We engineer custom architectures tied directly to compounding revenue.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

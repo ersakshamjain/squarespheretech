@@ -56,30 +56,27 @@ export default function Industries() {
   return (
     <section id="industries" className="py-20 md:py-28 bg-[#FAFAFA] border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
-              <span>Domain Specialization</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-heading">
-              Industries We Specialize In
-            </h2>
-            <p className="text-gray-500 mt-3 text-base sm:text-lg max-w-2xl">
-              We design specialized eCommerce architectures and omnichannel growth systems purpose-built for each vertical's unique buyer journey.
-            </p>
+        {/* Section Header (Centered like Projects) */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4">
+            <span>Domain Specialization</span>
           </div>
-          <div className="flex items-center gap-2 text-sm font-semibold text-blue-600">
-            <span>20+ Global Verticals Powered</span> &rarr;
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight font-heading">
+            Industries We Specialize In
+          </h2>
+          <p className="text-gray-500 mt-3 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            We design specialized eCommerce architectures and omnichannel growth systems purpose-built for each vertical's unique buyer journey.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile Touch Carousel / Desktop 3-Col Grid */}
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
           {industries.map((ind, idx) => {
             const Icon = ind.icon;
             return (
               <div 
                 key={idx} 
-                className={`bg-white p-8 rounded-2xl border border-gray-200/80 shadow-sm card-hover ${ind.borderHover} transition-all flex flex-col justify-between`}
+                className={`w-[85vw] max-w-[340px] flex-shrink-0 snap-center md:w-auto md:max-w-none md:flex-shrink bg-white p-6 sm:p-8 rounded-2xl border border-gray-200/80 shadow-sm card-hover ${ind.borderHover} transition-all flex flex-col justify-between`}
               >
                 <div>
                   <div className={`w-12 h-12 rounded-xl ${ind.bg} flex items-center justify-center mb-6`}>
@@ -103,6 +100,11 @@ export default function Industries() {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="md:hidden flex items-center justify-center gap-1.5 text-xs text-gray-500 mt-4 font-medium">
+          <span>← Swipe 6 industry domains →</span>
         </div>
       </div>
     </section>

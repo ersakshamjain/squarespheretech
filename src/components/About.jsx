@@ -32,10 +32,16 @@ export default function About() {
   return (
     <section id="about" className="py-20 md:py-28 bg-[#030712] text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight max-w-3xl font-heading">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4">
+            <span>Operating Principles</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading">
             A Technology Partner That Stays Accountable For Results
           </h2>
+          <p className="text-gray-400 mt-3 text-base sm:text-lg leading-relaxed">
+            One dedicated squad handling discovery, design, development and growth — zero hand-off gaps and complete revenue transparency.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
