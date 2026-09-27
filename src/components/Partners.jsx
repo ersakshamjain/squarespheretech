@@ -118,27 +118,22 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* Partner Badges (Mobile Touch Swipe / Desktop 8-Col Grid) */}
-        <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-3 sm:gap-3.5 pb-2 sm:pb-0 scrollbar-hide snap-x -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Partner & Expert Badges (Clean 4-Col Grid on Desktop, 2-Col on Mobile — No Scrollbar) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {partners.map((partner, idx) => (
             <div
               key={idx}
-              className={`min-w-[170px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-start flex items-center gap-3 px-3.5 py-3 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
+              className={`flex items-center gap-3 px-3.5 sm:px-4 py-3 rounded-xl bg-[#090F1E] border border-gray-800 ${partner.borderHover} hover:bg-[#0E172E] transition-all duration-300 group shadow-sm`}
             >
               <div className={`w-9 h-9 rounded-lg ${partner.bgGlow} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
                 {partner.icon}
               </div>
               <div className="min-w-0">
-                <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug">{partner.name}</div>
-                <div className={`${partner.typeColor} text-[10px] font-semibold tracking-wide`}>{partner.type}</div>
+                <div className="text-white text-xs sm:text-sm font-bold tracking-tight leading-snug truncate">{partner.name}</div>
+                <div className={`${partner.typeColor} text-[10px] sm:text-[11px] font-semibold tracking-wide truncate`}>{partner.type}</div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Mobile Swipe Hint */}
-        <div className="sm:hidden flex items-center justify-center gap-1.5 text-[11px] text-gray-500 mt-3 font-medium">
-          <span>&larr; Swipe partners &amp; experts &rarr;</span>
         </div>
       </div>
     </section>

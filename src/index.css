@@ -109,3 +109,41 @@ header.site-header {
   background: #0B1630;
   box-shadow: inset 0 0 12px rgba(18, 194, 233, 0.25);
 }
+
+/* Scrollbar Hide Utility (All Browsers) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Snap Align Utilities */
+.snap-center {
+  scroll-snap-align: center;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* Modern Browser Window Chrome Mockup */
+.browser-window {
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08);
+  background: #FFFFFF;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.browser-window:hover {
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(56, 189, 248, 0.25);
+  transform: translateY(-4px);
+}
+.browser-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
