@@ -9,7 +9,7 @@ export default function Team() {
     {
       name: 'Saksham Jain',
       role: 'Founder & Lead Technologist',
-      image: 'public/team/saksham-jain.jpg',
+      image: '/team/saksham-jain.jpg',
       initials: 'SJ',
       roleColor: 'text-blue-600',
       bg: 'bg-gradient-to-tr from-[#12C2E9] to-[#2A4CF0]',
@@ -22,7 +22,7 @@ export default function Team() {
     {
       name: 'Harshil Bansal',
       role: 'Finance Manager',
-      image: 'public/team/harshil-bansal.jpg',
+      image: '/team/harshil-bansal.jpg',
       initials: 'HB',
       roleColor: 'text-emerald-600',
       bg: 'bg-gradient-to-tr from-[#064E3B] to-[#059669]',
@@ -35,7 +35,7 @@ export default function Team() {
     {
       name: 'Navneet Jain',
       role: 'Business Development Manager',
-      image: 'public/team/navneet-jain.jpg',
+      image: '/team/navneet-jain.jpg',
       initials: 'NJ',
       roleColor: 'text-indigo-600',
       bg: 'bg-gradient-to-tr from-[#1E1B4B] to-[#4338CA]',
@@ -189,6 +189,7 @@ export default function Team() {
                     <img
                       src={member.image}
                       alt={member.name}
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       className="w-full h-full object-cover object-center scale-105 hover:scale-115 transition-transform duration-500"
                     />
                   ) : (

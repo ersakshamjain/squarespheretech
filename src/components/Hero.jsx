@@ -154,7 +154,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-[#030712] text-white hero-glow subtle-grid overflow-hidden">
+    <section id="home" style={{ backgroundColor: '#030712' }} className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-[#030712] text-white hero-glow subtle-grid overflow-hidden">
       {/* 3D Interactive Particle Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-[1] opacity-75" />
 
